@@ -17,7 +17,7 @@ public class GettingStartedTest {
      @Test
     public void addFiveToZero() {
         int result = new GettingStarted().addFive(0);
-        Assertions.assertEquals(0, result);
+        Assertions.assertEquals(5, result);
     }
 
     @Test
