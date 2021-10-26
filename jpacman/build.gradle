@@ -3,6 +3,7 @@ plugins {
     id 'java'
     id 'jacoco'
     id 'checkstyle'
+    id 'base'
     id 'pmd'
     id 'com.github.spotbugs' version '1.7.1'
 }
@@ -47,6 +48,7 @@ test.dependsOn defaultTest
 test {
     useJUnitPlatform()
     finalizedBy jacocoTestReport
+
 }
 
 defaultTest {
