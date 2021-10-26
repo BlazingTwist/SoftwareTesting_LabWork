@@ -22,7 +22,7 @@ import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 public class MockingTutorialTest {
@@ -184,7 +184,7 @@ public class MockingTutorialTest {
         verify(mockedList, never()).add("two");
 
         //verify that other mocks were not interacted
-        verifyZeroInteractions(firstMock, secondMock);
+        verifyNoInteractions(firstMock, secondMock);
     }
 
     @Test
