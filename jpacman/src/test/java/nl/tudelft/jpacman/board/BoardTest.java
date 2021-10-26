@@ -18,15 +18,4 @@ public class BoardTest {
         assertThat(board.squareAt(0,0)).isEqualTo(square);
         assertThat(board.invariant()).isTrue();
     }
-
-    @Test
-    public void createInvalidBoard(){
-        Square[][] grid = new Square[2][1];
-        BasicSquare nonNullSquare = new BasicSquare();
-        grid[0][0] = nonNullSquare;
-        grid[1][0] = null;
-        Board board = new Board(grid);
-        assertThat(board.squareAt(0,0)).isEqualTo(nonNullSquare);
-        assertThat(board.squareAt(1,0)).isEqualTo(null);
-    }
 }
