@@ -1,7 +1,7 @@
 # This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
 
-name: Java CI with Gradle
+name: Java CI with Gradle for jpacman
 
 on:
   push:
@@ -23,10 +23,10 @@ jobs:
         distribution: 'adopt'
         cache: gradle
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x jpacman/gradlew
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./jpacman/gradlew build
     - name: Gradle Test
-      run: ./gradlew test jacocoTestReport
+      run: ./jpacman/gradlew test jacocoTestReport
     - name: Gradle Statis Analysis
-      run: ./gradlew staticAnalysis
+      run: ./jpacman/gradlew staticAnalysis
