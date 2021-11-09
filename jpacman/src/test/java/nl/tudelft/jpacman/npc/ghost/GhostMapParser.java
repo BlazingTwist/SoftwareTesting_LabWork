@@ -14,6 +14,18 @@ import java.util.List;
  * findUnitInBoard in the Navigation class.
  */
 public final class GhostMapParser extends MapParser {
+    /**
+     * Maps for tests are stored in the resources directory as `[NameOfTestClass]/[NameOfTest].map`
+     *
+     * @return the relative path to the test-map
+     */
+    public static String getMapNameForTest() throws ClassNotFoundException {
+        String className = Thread.currentThread().getStackTrace()[2].getClassName();
+        String simpleClassName = Class.forName(className).getSimpleName();
+        String methodName = Thread.currentThread().getStackTrace()[2].getMethodName();
+        return "/" + simpleClassName + "/" + methodName + ".map";
+    }
+
     private final GhostFactory ghostFactory;
 
     /**
