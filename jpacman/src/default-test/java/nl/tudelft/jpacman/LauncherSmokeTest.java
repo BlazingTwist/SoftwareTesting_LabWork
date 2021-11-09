@@ -1,7 +1,5 @@
 package nl.tudelft.jpacman;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.game.Game;
 import nl.tudelft.jpacman.level.Player;
@@ -9,15 +7,17 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * Smoke test launching the full game,
  * and attempting to make a number of typical moves.
- *
+ * <p>
  * This is <strong>not</strong> a <em>unit</em> test -- it is an end-to-end test
  * trying to execute a large portion of the system's behavior directly from the
  * user interface. It uses the actual sprites and monster AI, and hence
  * has little control over what is happening in the game.
- *
+ * <p>
  * Because it is an end-to-end test, it is somewhat longer
  * and has more assert statements than what would be good
  * for a small and focused <em>unit</em> test.
@@ -102,8 +102,8 @@ public class LauncherSmokeTest {
     /**
      * Make number of moves in given direction.
      *
-     * @param game The game we're playing
-     * @param dir The direction to be taken
+     * @param game     The game we're playing
+     * @param dir      The direction to be taken
      * @param numSteps The number of steps to take
      */
     public static void move(Game game, Direction dir, int numSteps) {
