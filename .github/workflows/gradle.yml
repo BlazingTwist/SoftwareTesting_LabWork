@@ -22,15 +22,24 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: gradle
+    - name: Install xvfb
+      run: sudo apt-get install xvfb
+      working-directory: jpacman
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
       working-directory: jpacman
-    - name: Build with Gradle
-      run: ./gradlew build
-      working-directory: jpacman
-    - name: Gradle Test
-      run: ./gradlew test --stacktrace
-      working-directory: jpacman
-    - name: Gradle Statis Analysis
-      run: ./gradlew staticAnalysis
-      working-directory: jpacman
+    - name: xvfb build with gradle
+      uses: GabrielBB/xvfb-action@v1
+      with:
+        run: gradlew build
+        working-directory: jpacman
+    - name: xvfb gradle test
+      uses: GabrielBB/xvfb-action@v1
+      with:
+        run: gradlew test jacocoTestReport
+        working-directory: jpacman    
+    - name: xvfb gradle static analysis
+      uses: GabrielBB/xvfb-action@v1
+      with:
+        run: gradlew staticAnalysis
+        working-directory: jpacman
