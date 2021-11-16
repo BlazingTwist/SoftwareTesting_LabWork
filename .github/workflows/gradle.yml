@@ -28,14 +28,9 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
       working-directory: jpacman
-    - name: List Gradle Tasks
-      uses: Raul6469/android-gradle-action@2.0.0
-      with:
-        script: tasks
     - name: Gradle Test
-      uses: Raul6469/android-gradle-action@2.0.0
-      with:
-        script: test
+      run: ./gradlew test --stacktrace
+      working-directory: jpacman
     - name: Gradle Statis Analysis
       run: ./gradlew staticAnalysis
       working-directory: jpacman
