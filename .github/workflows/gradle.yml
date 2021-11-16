@@ -5,9 +5,9 @@ name: Java CI with Gradle for jpacman
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, eric_githubActions ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, eric_githubActions ]
 
 jobs:
   build:
