@@ -26,7 +26,7 @@ jobs:
       run: chmod +x gradlew
       working-directory: jpacman
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew build --debug
       working-directory: jpacman
     - name: Gradle Test
       run: ./gradlew jacocoTestReport --debug
