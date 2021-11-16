@@ -31,15 +31,15 @@ jobs:
     - name: xvfb build with gradle
       uses: GabrielBB/xvfb-action@v1
       with:
-        run: gradlew build
+        run: ./gradlew build
         working-directory: jpacman
     - name: xvfb gradle test
       uses: GabrielBB/xvfb-action@v1
       with:
-        run: gradlew test jacocoTestReport
+        run: ./gradlew test jacocoTestReport
         working-directory: jpacman    
     - name: xvfb gradle static analysis
       uses: GabrielBB/xvfb-action@v1
       with:
-        run: gradlew staticAnalysis
+        run: ./gradlew staticAnalysis
         working-directory: jpacman
