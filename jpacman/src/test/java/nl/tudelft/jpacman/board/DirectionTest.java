@@ -29,7 +29,6 @@ public class DirectionTest {
         Direction east = Direction.valueOf("EAST");
         assertThat(east.getDeltaX()).isEqualTo(1);
         assertThat(east.getDeltaY()).isEqualTo(0);
-        System.out.println("Trigger github action");
     }
 
     /**
