@@ -32,12 +32,10 @@ jobs:
       uses: Raul6469/android-gradle-action@2.0.0
       with:
         script: tasks
-        working-directory: jpacman
     - name: Gradle Test
       uses: Raul6469/android-gradle-action@2.0.0
       with:
         script: test
-        working-directory: jpacman
     - name: Gradle Statis Analysis
       run: ./gradlew staticAnalysis
       working-directory: jpacman
