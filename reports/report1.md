@@ -8,3 +8,9 @@ Their only usage is in the `DefaultPlayerInteractionMap`, a class that isn't use
 The SmokeTest would cover all 3 of these classes, if it instantiated the `DefaultPlayerInteractionMap` directly or indirectly.
 
 <br/>
+
+# Exercise 12
+
+### *"Provide a domain matrix for the desired behavior of the boundary values in the withinBorders method."*
+
+![Domain matrix](Exercise_12_img1.png)
