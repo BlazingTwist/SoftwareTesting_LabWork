@@ -15,10 +15,16 @@ import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Test functionality of the {@link nl.tudelft.jpacman.npc.ghost.Clyde} class.
+ */
 public class ClydeTest {
-    GhostMapParser mapParser;
-    PlayerFactory playerFactory;
+    private GhostMapParser mapParser;
+    private PlayerFactory playerFactory;
 
+    /**
+     * Prepares mapParser and playerFactory.
+     */
     @BeforeEach
     public void setUp() {
         PacManSprites pacManSprites = new PacManSprites();
@@ -31,8 +37,9 @@ public class ClydeTest {
 
     /**
      * Verifies that no move is made when there is no Player on the board.
+     *
      * @throws ClassNotFoundException should not be thrown.
-     * @throws IOException should not be thrown.
+     * @throws IOException            should not be thrown.
      */
     @Test
     public void test_whenNoPlayerFound_thenNoMove() throws ClassNotFoundException, IOException {
@@ -44,10 +51,11 @@ public class ClydeTest {
 
     /**
      * Verifies that Clyde moves in the opposite direction of the shortest path to the closest player
-     *  (which isn't necessarily pointing away from the player)
+     * (which isn't necessarily pointing away from the player)
      * when he is 8 or fewer tiles away along that path.
+     *
      * @throws ClassNotFoundException should not be thrown.
-     * @throws IOException should not be thrown.
+     * @throws IOException            should not be thrown.
      */
     @Test
     public void test_whenPlayerInShynessRange_thenRetreat() throws ClassNotFoundException, IOException {
@@ -62,8 +70,9 @@ public class ClydeTest {
     /**
      * Verifies that Clyde moves in the direction of the shortest path to the closest player
      * when he is more than 8 tiles along that path.
+     *
      * @throws ClassNotFoundException should not be thrown.
-     * @throws IOException should not be thrown.
+     * @throws IOException            should not be thrown.
      */
     @Test
     public void test_whenPlayerOutOfShynessRange_thenApproach() throws ClassNotFoundException, IOException {
@@ -77,8 +86,9 @@ public class ClydeTest {
 
     /**
      * Verifies that no move is made when there is no valid path to the nearest Player on the board.
+     *
      * @throws ClassNotFoundException should not be thrown.
-     * @throws IOException should not be thrown.
+     * @throws IOException            should not be thrown.
      */
     @Test
     public void test_whenNoPathFound_thenNoMove() throws ClassNotFoundException, IOException {

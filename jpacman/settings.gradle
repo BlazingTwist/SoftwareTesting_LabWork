@@ -1,2 +1,2 @@
 rootProject.name = 'jpacman'
-rootProject.projectDir = new File('../jpacman-gradle-projectDir/')
+rootProject.projectDir = new File('./')

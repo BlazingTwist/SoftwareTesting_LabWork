@@ -67,7 +67,7 @@ jacocoTestReport {
 }
 
 checkstyle {
-    configDir = file("$rootProject.projectDir")
+    configDir = file("$rootProject.projectDir/src")
     configFile file("checkstyle.xml")
     ignoreFailures = false
 }

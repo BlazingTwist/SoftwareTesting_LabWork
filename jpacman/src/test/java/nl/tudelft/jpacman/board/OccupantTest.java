@@ -70,9 +70,10 @@ class OccupantTest {
     }
 
     /**
-     * Verifies that the squaresAheadOf method wraps at the border of the map
+     * Verifies that the squaresAheadOf method wraps at the border of the map.
+     *
      * @throws ClassNotFoundException should not be thrown.
-     * @throws IOException should not be thrown.
+     * @throws IOException            should not be thrown.
      */
     @Test
     public void test_thatSquaresAheadOf_producesWrapping() throws ClassNotFoundException, IOException {
@@ -88,7 +89,8 @@ class OccupantTest {
         level.registerPlayer(player);
 
         player.setDirection(Direction.NORTH);
-        Square square = player.squaresAheadOf(3);
+        final int amountToLookAhead = 3; // the amount of tiles of travel to reach our marker
+        Square square = player.squaresAheadOf(amountToLookAhead);
         boolean occupantsContainClyde = square.getOccupants().stream()
             .anyMatch(unit -> unit.getClass().isAssignableFrom(Clyde.class));
         assertThat(occupantsContainClyde).isTrue();

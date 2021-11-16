@@ -15,14 +15,19 @@ import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Tests functionality of the {@link nl.tudelft.jpacman.npc.ghost.Inky} class.
+ */
 public class InkyTest {
-    GhostMapParser mapParser;
-    PlayerFactory playerFactory;
+    private GhostMapParser mapParser;
+    private PlayerFactory playerFactory;
 
-    Player player;
-    Blinky blinky;
-    Inky inky;
+    private Player player;
+    private Inky inky;
 
+    /**
+     * Called before every Test.
+     */
     @BeforeEach
     public void setUp() {
         PacManSprites pacManSprites = new PacManSprites();
@@ -40,7 +45,6 @@ public class InkyTest {
             level.registerPlayer(player);
         }
 
-        blinky = Navigation.findUnitInBoard(Blinky.class, level.getBoard());
         inky = Navigation.findUnitInBoard(Inky.class, level.getBoard());
         assert inky != null;
     }
