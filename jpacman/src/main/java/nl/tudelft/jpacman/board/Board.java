@@ -57,7 +57,7 @@ public class Board {
      * @return The height of this board.
      */
     public int getHeight() {
-        return board[0].length;
+        return board.length == 0 ? 0 : board[0].length;
     }
 
     /**
