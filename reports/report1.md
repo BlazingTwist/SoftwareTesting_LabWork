@@ -35,3 +35,11 @@ However, it is absolutely fine, that the smoke test provides such a general erro
 
 If we execute all test cases, it is easy to identify that something about navigating the board does not work correctly.  
 Unfortunately gradle does not execute our `DirectionTest` class, which makes the issue strikingly obvious, because the `DirectionTest` is not part of the `default-test`s.
+
+
+
+# Exercise 14
+
+### *"What can we do to avoid code repetition during the Arrange part of the unit test?"*
+
+It is important to specify the unit test as precisely as possible in the arrange phase. This saves you from calling classes / methods etc. that are not absolutely necessary for the unittest. The less complex the test, the lower the probability of code repetitions. 
