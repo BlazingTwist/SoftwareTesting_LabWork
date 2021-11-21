@@ -9,6 +9,19 @@ The SmokeTest would cover all 3 of these classes, if it instantiated the `Defaul
 
 <br/>
 
+
+#  Exercise 7
+
+
+### *"Have a look at class game.Game, method move. Is it covered by our smoke test?"*
+
+Yes the method move is covered by the LauncherSmokeTest.
+
+We are getting the exeption that the score is 10, but we expected 60. Althought the exeption
+gave us the hint to search for the bug between the 2 marked assetions. To fix the problem is quiet 
+simple, because we have got only one line of code after every assertion.
+
+
 # Exercise 8
 
 ### *"Change board.Direction.getDeltaX so that it returns dy instead of dx."*
