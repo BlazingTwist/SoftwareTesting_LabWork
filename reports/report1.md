@@ -115,7 +115,14 @@ TODO
 
 # Exercise 16
 
-TODO
+It is generally always better to use the more "specific" assertion: `assertEquals` in this case.  
+assertEquals means "are two things equal?", whereas assertTrue just means "is this boolean true?".  
+When using `assertTrue`, the information that we're comparing two values for equality is not communicated to JUnit.
+
+The error message of assertEquals is also more clear than assertTrue:
+`Expected: 1 | Actual: 5` is more helpful than `Expected: True | Actual: False`
+
+Using assertEquals also ensures that changing the type of `a` to a non-primitive type does not affect the assertion, as assertEquals uses the overridable `Object::equals` method, whereas `==` does not.
 
 <br/>
 
