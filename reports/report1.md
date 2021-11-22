@@ -9,6 +9,18 @@ The SmokeTest would cover all 3 of these classes, if it instantiated the `Defaul
 
 <br/>
 
+#  Exercise 7
+
+### *"Have a look at class game.Game, method move. Is it covered by our smoke test?"*
+
+Yes the method move is covered by the LauncherSmokeTest.
+
+We are getting the exeption that the score is 10, but we expected 60.  
+Althought the exeption gave us the hint to search for the bug between the 2 marked assetions.  
+To fix the problem is quite simple, because we have got only one line of code after every assertion.
+
+<br/>
+
 # Exercise 8
 
 ### *"Change board.Direction.getDeltaX so that it returns dy instead of dx."*
@@ -43,7 +55,7 @@ Unfortunately gradle does not execute our `DirectionTest` class, which makes the
 ### *"Then, provide at most two paragraphs explaining how Game, Unit, Board, and Level classes are related to each other."*
 
 A List of Ghosts(which extends from Class `Unit`) and a `Board` is passed to the `Level` class on initialisation.  
-In the `Game` class the methods from the `Level` class are used to manage/controll the running Game.
+In the `Game` class the methods from the `Level` class are used to manage/control the running Game.
 
 
 <br/>
@@ -70,5 +82,5 @@ Our resulting domain matrix may look like this:
 ### *"What can we do to avoid code repetition during the Arrange part of the unit test?"*
 
 It is important to specify the unit test as precisely as possible in the arrange phase.  
-This saves you from calling classes / methods etc. that are not absolutely necessary for the unittest.  
+This saves you from calling classes / methods etc. that are not absolutely necessary for the unit-test.  
 The less complex the test, the lower the probability of code repetitions. 
