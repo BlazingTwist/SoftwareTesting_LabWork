@@ -9,6 +9,35 @@ The SmokeTest would cover all 3 of these classes, if it instantiated the `Defaul
 
 <br/>
 
+# Exercise 8
+
+### *"Change board.Direction.getDeltaX so that it returns dy instead of dx."*
+### *"Explain what you see. Was it easy to understand where the problem is?"*
+
+The test fails with this message:
+```
+org.opentest4j.AssertionFailedError: 
+Expecting:
+ <0>
+to be equal to:
+ <10>
+but was not.
+Expected :10
+Actual   :0
+
+at nl.tudelft.jpacman.LauncherSmokeTest.smokeTest(LauncherSmokeTest.java:69)
+```
+
+In my opinion, the message provided by the smoke test isn't very clear. And the information that this test is failing is not particularly helpful.  
+This is because there are many possible error sources, as the test simply does "take one step east, are your points == 10?", it may be that the point calculator does not work, the level is set up incorrectly, something about the movement is broken, etc.
+
+However, it is absolutely fine, that the smoke test provides such a general error, since it's purpose is to identify "does the game seem to work at a general level?" - and it correctly identified that it does *not*.
+
+If we execute all test cases, it is easy to identify that something about navigating the board does not work correctly.  
+Unfortunately gradle does not execute our `DirectionTest` class, which makes the issue strikingly obvious, because the `DirectionTest` is not part of the `default-test`s.
+
+<br/>
+
 # Exercise 12
 
 ### *"Provide a domain matrix for the desired behavior of the boundary values in the withinBorders method."*
