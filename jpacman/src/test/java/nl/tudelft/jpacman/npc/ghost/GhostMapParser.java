@@ -1,12 +1,11 @@
 package nl.tudelft.jpacman.npc.ghost;
 
+import java.util.List;
 import nl.tudelft.jpacman.board.BoardFactory;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.level.LevelFactory;
 import nl.tudelft.jpacman.level.MapParser;
 import nl.tudelft.jpacman.npc.Ghost;
-
-import java.util.List;
 
 /**
  * A test helper utility for writing the ghost unit tests.

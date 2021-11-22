@@ -1,23 +1,21 @@
 package nl.tudelft.jpacman.level;
 
+import com.google.common.collect.Lists;
+import nl.tudelft.jpacman.board.Board;
+import nl.tudelft.jpacman.board.Square;
+import nl.tudelft.jpacman.npc.Ghost;
 import static org.assertj.core.api.Assertions.assertThat;
-
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import nl.tudelft.jpacman.board.Board;
-import nl.tudelft.jpacman.board.Square;
-import nl.tudelft.jpacman.npc.Ghost;
-
-import com.google.common.collect.Lists;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 /**
  * Tests various aspects of level.
  *
- * @author Jeroen Roosen 
+ * @author Jeroen Roosen
  */
 // The four suppress warnings ignore the same rule, which results in 4 same string literals
 @SuppressWarnings({"PMD.AvoidDuplicateLiterals", "PMD.TooManyStaticImports"})

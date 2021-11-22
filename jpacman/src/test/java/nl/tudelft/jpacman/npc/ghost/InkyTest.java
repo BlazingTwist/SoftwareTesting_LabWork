@@ -1,5 +1,6 @@
 package nl.tudelft.jpacman.npc.ghost;
 
+import java.io.IOException;
 import nl.tudelft.jpacman.board.BoardFactory;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.level.Level;
@@ -8,12 +9,9 @@ import nl.tudelft.jpacman.level.Player;
 import nl.tudelft.jpacman.level.PlayerFactory;
 import nl.tudelft.jpacman.points.DefaultPointCalculator;
 import nl.tudelft.jpacman.sprite.PacManSprites;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Tests functionality of the {@link nl.tudelft.jpacman.npc.ghost.Inky} class.
@@ -51,8 +49,9 @@ public class InkyTest {
 
     /**
      * Verifies that no move is made when there is no Player on the board.
+     *
      * @throws ClassNotFoundException should not be thrown.
-     * @throws IOException should not be thrown.
+     * @throws IOException            should not be thrown.
      */
     @Test
     public void test_whenNoPlayerFound_thenNoMove() throws ClassNotFoundException, IOException {
@@ -62,8 +61,9 @@ public class InkyTest {
 
     /**
      * Verifies that no move is made when Blinky is not on the board.
+     *
      * @throws ClassNotFoundException should not be thrown.
-     * @throws IOException should not be thrown.
+     * @throws IOException            should not be thrown.
      */
     @Test
     public void test_whenNoBlinkyFound_thenNoMove() throws ClassNotFoundException, IOException {
@@ -74,8 +74,9 @@ public class InkyTest {
     /**
      * Verifies that Inky does not move when there is no valid path to the target
      * (e.g. path obstructed by a wall)
+     *
      * @throws ClassNotFoundException should not be thrown.
-     * @throws IOException should not be thrown.
+     * @throws IOException            should not be thrown.
      */
     @Test
     public void test_whenNoPathToTarget_thenNoMove() throws ClassNotFoundException, IOException {
@@ -86,8 +87,9 @@ public class InkyTest {
 
     /**
      * Verifies that normal pathfinding without wrapping at borders is working as expected.
+     *
      * @throws ClassNotFoundException should not be thrown.
-     * @throws IOException should not be thrown.
+     * @throws IOException            should not be thrown.
      */
     @Test
     public void test_validTargetPathWithoutWrapping() throws ClassNotFoundException, IOException {
@@ -98,8 +100,9 @@ public class InkyTest {
 
     /**
      * Verifies that pathfinding with wrapping at borders is working as expected.
+     *
      * @throws ClassNotFoundException should not be thrown.
-     * @throws IOException should not be thrown.
+     * @throws IOException            should not be thrown.
      */
     @Test
     public void test_validTargetPathWithWrapping() throws ClassNotFoundException, IOException {
@@ -110,8 +113,9 @@ public class InkyTest {
 
     /**
      * Verifies that Inky stops moving when he has reached his target Square.
+     *
      * @throws ClassNotFoundException should not be thrown.
-     * @throws IOException should not be thrown.
+     * @throws IOException            should not be thrown.
      */
     @Test
     public void test_whenAlreadyAtTarget_thenNoMove() throws ClassNotFoundException, IOException {

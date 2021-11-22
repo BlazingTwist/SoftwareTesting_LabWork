@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * A key listener based on a set of keyCode-action pairs.
  *
- * @author Jeroen Roosen 
+ * @author Jeroen Roosen
  */
 class PacKeyListener implements KeyListener {
 
@@ -18,6 +18,7 @@ class PacKeyListener implements KeyListener {
 
     /**
      * Create a new key listener based on a set of keyCode-action pairs.
+     *
      * @param keyMappings The mappings of keyCode to action.
      */
     PacKeyListener(Map<Integer, Action> keyMappings) {

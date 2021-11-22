@@ -3,7 +3,6 @@ package nl.tudelft.jpacman;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.List;
-
 import nl.tudelft.jpacman.board.BoardFactory;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.game.Game;
@@ -23,7 +22,7 @@ import nl.tudelft.jpacman.ui.PacManUiBuilder;
 
 /**
  * Creates and launches the JPacMan UI.
- * 
+ *
  * @author Jeroen Roosen
  */
 @SuppressWarnings("PMD.TooManyMethods")
@@ -39,7 +38,7 @@ public class Launcher {
 
     /**
      * @return The game object this launcher will start when {@link #launch()}
-     *         is called.
+     * is called.
      */
     public Game getGame() {
         return game;
@@ -57,8 +56,7 @@ public class Launcher {
     /**
      * Set the name of the file containing this level's map.
      *
-     * @param fileName
-     *            Map to be used.
+     * @param fileName Map to be used.
      * @return Level corresponding to the given map.
      */
     public Launcher withMapFile(String fileName) {
@@ -93,13 +91,13 @@ public class Launcher {
             return getMapParser().parseMap(getLevelMap());
         } catch (IOException e) {
             throw new PacmanConfigurationException(
-                    "Unable to create level, name = " + getLevelMap(), e);
+                "Unable to create level, name = " + getLevelMap(), e);
         }
     }
 
     /**
      * @return A new map parser object using the factories from
-     *         {@link #getLevelFactory()} and {@link #getBoardFactory()}.
+     * {@link #getLevelFactory()} and {@link #getBoardFactory()}.
      */
     protected MapParser getMapParser() {
         return new MapParser(getLevelFactory(), getBoardFactory());
@@ -107,7 +105,7 @@ public class Launcher {
 
     /**
      * @return A new board factory using the sprite store from
-     *         {@link #getSpriteStore()}.
+     * {@link #getSpriteStore()}.
      */
     protected BoardFactory getBoardFactory() {
         return new BoardFactory(getSpriteStore());
@@ -122,7 +120,7 @@ public class Launcher {
 
     /**
      * @return A new factory using the sprites from {@link #getSpriteStore()}
-     *         and the ghosts from {@link #getGhostFactory()}.
+     * and the ghosts from {@link #getGhostFactory()}.
      */
     protected LevelFactory getLevelFactory() {
         return new LevelFactory(getSpriteStore(), getGhostFactory(), loadPointCalculator());
@@ -152,14 +150,13 @@ public class Launcher {
     /**
      * Adds key events UP, DOWN, LEFT and RIGHT to a game.
      *
-     * @param builder
-     *            The {@link PacManUiBuilder} that will provide the UI.
+     * @param builder The {@link PacManUiBuilder} that will provide the UI.
      */
     protected void addSinglePlayerKeys(final PacManUiBuilder builder) {
         builder.addKey(KeyEvent.VK_UP, moveTowardsDirection(Direction.NORTH))
-                .addKey(KeyEvent.VK_DOWN, moveTowardsDirection(Direction.SOUTH))
-                .addKey(KeyEvent.VK_LEFT, moveTowardsDirection(Direction.WEST))
-                .addKey(KeyEvent.VK_RIGHT, moveTowardsDirection(Direction.EAST));
+            .addKey(KeyEvent.VK_DOWN, moveTowardsDirection(Direction.SOUTH))
+            .addKey(KeyEvent.VK_LEFT, moveTowardsDirection(Direction.WEST))
+            .addKey(KeyEvent.VK_RIGHT, moveTowardsDirection(Direction.EAST));
     }
 
     private Action moveTowardsDirection(Direction direction) {
@@ -191,7 +188,7 @@ public class Launcher {
     /**
      * Disposes of the UI. For more information see
      * {@link javax.swing.JFrame#dispose()}.
-     *
+     * <p>
      * Precondition: The game was launched first.
      */
     public void dispose() {
@@ -202,10 +199,8 @@ public class Launcher {
     /**
      * Main execution method for the Launcher.
      *
-     * @param args
-     *            The command line arguments - which are ignored.
-     * @throws IOException
-     *             When a resource could not be read.
+     * @param args The command line arguments - which are ignored.
+     * @throws IOException When a resource could not be read.
      */
     public static void main(String[] args) throws IOException {
         new Launcher().launch();

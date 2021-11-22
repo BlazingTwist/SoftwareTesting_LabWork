@@ -1,5 +1,6 @@
 package nl.tudelft.jpacman.board;
 
+import java.io.IOException;
 import nl.tudelft.jpacman.level.Level;
 import nl.tudelft.jpacman.level.LevelFactory;
 import nl.tudelft.jpacman.level.Player;
@@ -9,12 +10,9 @@ import nl.tudelft.jpacman.npc.ghost.GhostFactory;
 import nl.tudelft.jpacman.npc.ghost.GhostMapParser;
 import nl.tudelft.jpacman.points.DefaultPointCalculator;
 import nl.tudelft.jpacman.sprite.PacManSprites;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Test suite to confirm that {@link Unit}s correctly (de)occupy squares.

@@ -3,9 +3,7 @@ package nl.tudelft.jpacman.ui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-
 import javax.swing.JPanel;
-
 import nl.tudelft.jpacman.board.Board;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.board.Unit;
@@ -14,8 +12,7 @@ import nl.tudelft.jpacman.game.Game;
 /**
  * Panel displaying a game.
  *
- * @author Jeroen Roosen 
- *
+ * @author Jeroen Roosen
  */
 class BoardPanel extends JPanel {
 
@@ -43,8 +40,7 @@ class BoardPanel extends JPanel {
     /**
      * Creates a new board panel that will display the provided game.
      *
-     * @param game
-     *            The game to display.
+     * @param game The game to display.
      */
     BoardPanel(Game game) {
         super();
@@ -70,12 +66,9 @@ class BoardPanel extends JPanel {
     /**
      * Renders the board on the given graphics context to the given dimensions.
      *
-     * @param board
-     *            The board to render.
-     * @param graphics
-     *            The graphics context to draw on.
-     * @param window
-     *            The dimensions to scale the rendered board to.
+     * @param board    The board to render.
+     * @param graphics The graphics context to draw on.
+     * @param window   The dimensions to scale the rendered board to.
      */
     private void render(Board board, Graphics graphics, Dimension window) {
         int cellW = window.width / board.getWidth();
@@ -98,18 +91,12 @@ class BoardPanel extends JPanel {
      * Renders a single square on the given graphics context on the specified
      * rectangle.
      *
-     * @param square
-     *            The square to render.
-     * @param graphics
-     *            The graphics context to draw on.
-     * @param x
-     *            The x position to start drawing.
-     * @param y
-     *            The y position to start drawing.
-     * @param width
-     *            The width of this square (in pixels.)
-     * @param height
-     *            The height of this square (in pixels.)
+     * @param square   The square to render.
+     * @param graphics The graphics context to draw on.
+     * @param x        The x position to start drawing.
+     * @param y        The y position to start drawing.
+     * @param width    The width of this square (in pixels.)
+     * @param height   The height of this square (in pixels.)
      */
     private void render(Square square, Graphics graphics, int x, int y, int width, int height) {
         square.getSprite().draw(graphics, x, y, width, height);

@@ -1,19 +1,17 @@
 package nl.tudelft.jpacman.sprite;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.imageio.ImageIO;
 
 /**
  * Utility to load {@link Sprite}s.
  *
- * @author Jeroen Roosen 
+ * @author Jeroen Roosen
  */
 public class SpriteStore {
 
@@ -35,11 +33,9 @@ public class SpriteStore {
      * Sprites are loaded once, and then stored in the store
      * so that they can be efficiently retrieved.
      *
-     * @param resource
-     *            The resource path.
+     * @param resource The resource path.
      * @return The sprite for the resource.
-     * @throws IOException
-     *             When the resource could not be loaded.
+     * @throws IOException When the resource could not be loaded.
      */
     public Sprite loadSprite(String resource) throws IOException {
         Sprite result = spriteMap.get(resource);
@@ -53,11 +49,9 @@ public class SpriteStore {
     /**
      * Loads a sprite from a resource on the class path.
      *
-     * @param resource
-     *            The resource path.
+     * @param resource The resource path.
      * @return A new sprite for the resource.
-     * @throws IOException
-     *             When the resource could not be loaded.
+     * @throws IOException When the resource could not be loaded.
      */
     @SuppressFBWarnings(
         value = "RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE",
@@ -76,14 +70,10 @@ public class SpriteStore {
     /**
      * Creates a new {@link AnimatedSprite} from a base image.
      *
-     * @param baseImage
-     *            The base image to convert into an animation.
-     * @param frames
-     *            The amount of frames of the animation.
-     * @param delay
-     *            The delay between frames.
-     * @param loop
-     *            Whether this sprite is a looping animation or not.
+     * @param baseImage The base image to convert into an animation.
+     * @param frames    The amount of frames of the animation.
+     * @param delay     The delay between frames.
+     * @param loop      Whether this sprite is a looping animation or not.
      * @return The animated sprite.
      */
     public AnimatedSprite createAnimatedSprite(Sprite baseImage, int frames,

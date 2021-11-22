@@ -1,5 +1,6 @@
 package nl.tudelft.jpacman.npc.ghost;
 
+import java.io.IOException;
 import nl.tudelft.jpacman.board.BoardFactory;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.level.Level;
@@ -8,12 +9,9 @@ import nl.tudelft.jpacman.level.Player;
 import nl.tudelft.jpacman.level.PlayerFactory;
 import nl.tudelft.jpacman.points.DefaultPointCalculator;
 import nl.tudelft.jpacman.sprite.PacManSprites;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Test functionality of the {@link nl.tudelft.jpacman.npc.ghost.Clyde} class.

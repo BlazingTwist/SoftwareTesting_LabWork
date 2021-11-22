@@ -1,18 +1,17 @@
 package nl.tudelft.jpacman.level;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
 import nl.tudelft.jpacman.PacmanConfigurationException;
 import nl.tudelft.jpacman.board.Board;
 import nl.tudelft.jpacman.board.BoardFactory;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.npc.Ghost;
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 /**
  * Creates new {@link Level}s from text representations.
@@ -34,10 +33,8 @@ public class MapParser {
     /**
      * Creates a new map parser.
      *
-     * @param levelFactory
-     *            The factory providing the NPC objects and the level.
-     * @param boardFactory
-     *            The factory providing the Square objects and the board.
+     * @param levelFactory The factory providing the NPC objects and the level.
+     * @param boardFactory The factory providing the Square objects and the board.
      */
     public MapParser(LevelFactory levelFactory, BoardFactory boardFactory) {
         this.levelCreator = levelFactory;
@@ -56,8 +53,7 @@ public class MapParser {
      * <li>'G' (capital G) a square with a ghost.
      * </ul>
      *
-     * @param map
-     *            The text representation of the board, with map[x][y]
+     * @param map The text representation of the board, with map[x][y]
      *            representing the square at position x,y.
      * @return The level as represented by this text.
      */
@@ -91,20 +87,14 @@ public class MapParser {
      * character come from the map files and describe the type
      * of square.
      *
-     * @param grid
-     *            The grid of squares with board[x][y] being the
-     *            square at column x, row y.
-     * @param ghosts
-     *            List of all ghosts that were added to the map.
-     * @param startPositions
-     *            List of all start positions that were added
-     *            to the map.
-     * @param x
-     *            x coordinate of the square.
-     * @param y
-     *            y coordinate of the square.
-     * @param c
-     *            Character describing the square type.
+     * @param grid           The grid of squares with board[x][y] being the
+     *                       square at column x, row y.
+     * @param ghosts         List of all ghosts that were added to the map.
+     * @param startPositions List of all start positions that were added
+     *                       to the map.
+     * @param x              x coordinate of the square.
+     * @param y              y coordinate of the square.
+     * @param c              Character describing the square type.
      */
     protected void addSquare(Square[][] grid, List<Ghost> ghosts,
                              List<Square> startPositions, int x, int y, char c) {
@@ -140,7 +130,7 @@ public class MapParser {
      * and appends the placed ghost into the ghost list.
      *
      * @param ghosts all the ghosts in the level so far, the new ghost will be appended
-     * @param ghost the newly created ghost to be placed
+     * @param ghost  the newly created ghost to be placed
      * @return a square with the ghost on it.
      */
     protected Square makeGhostSquare(List<Ghost> ghosts, Ghost ghost) {
@@ -154,10 +144,9 @@ public class MapParser {
      * Parses the list of strings into a 2-dimensional character array and
      * passes it on to {@link #parseMap(char[][])}.
      *
-     * @param text
-     *            The plain text, with every entry in the list being a equally
-     *            sized row of squares on the board and the first element being
-     *            the top row.
+     * @param text The plain text, with every entry in the list being a equally
+     *             sized row of squares on the board and the first element being
+     *             the top row.
      * @return The level as represented by the text.
      * @throws PacmanConfigurationException If text lines are not properly formatted.
      */
@@ -179,6 +168,7 @@ public class MapParser {
 
     /**
      * Check the correctness of the map lines in the text.
+     *
      * @param text Map to be checked
      * @throws PacmanConfigurationException if map is not OK.
      */
@@ -212,11 +202,9 @@ public class MapParser {
      * Parses the provided input stream as a character stream and passes it
      * result to {@link #parseMap(List)}.
      *
-     * @param source
-     *            The input stream that will be read.
+     * @param source The input stream that will be read.
      * @return The parsed level as represented by the text on the input stream.
-     * @throws IOException
-     *             when the source could not be read.
+     * @throws IOException when the source could not be read.
      */
     public Level parseMap(InputStream source) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(
@@ -233,11 +221,9 @@ public class MapParser {
      * Parses the provided input stream as a character stream and passes it
      * result to {@link #parseMap(List)}.
      *
-     * @param mapName
-     *            Name of a resource that will be read.
+     * @param mapName Name of a resource that will be read.
      * @return The parsed level as represented by the text on the input stream.
-     * @throws IOException
-     *             when the resource could not be read.
+     * @throws IOException when the resource could not be read.
      */
     @SuppressFBWarnings(
         value = {"OBL_UNSATISFIED_OBLIGATION", "RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE"},

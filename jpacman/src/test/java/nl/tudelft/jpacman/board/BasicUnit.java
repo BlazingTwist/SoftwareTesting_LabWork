@@ -5,7 +5,7 @@ import nl.tudelft.jpacman.sprite.Sprite;
 /**
  * Basic implementation of unit.
  *
- * @author Jeroen Roosen 
+ * @author Jeroen Roosen
  */
 class BasicUnit extends Unit {
 

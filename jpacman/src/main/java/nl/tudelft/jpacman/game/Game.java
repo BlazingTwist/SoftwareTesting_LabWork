@@ -1,7 +1,6 @@
 package nl.tudelft.jpacman.game;
 
 import java.util.List;
-
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.level.Level;
 import nl.tudelft.jpacman.level.Level.LevelObserver;
@@ -11,7 +10,7 @@ import nl.tudelft.jpacman.points.PointCalculator;
 /**
  * A basic implementation of a Pac-Man game.
  *
- * @author Jeroen Roosen 
+ * @author Jeroen Roosen
  */
 public abstract class Game implements LevelObserver {
 
@@ -34,8 +33,7 @@ public abstract class Game implements LevelObserver {
     /**
      * Creates a new game.
      *
-     * @param pointCalculator
-     *             The way to calculate points upon collisions.
+     * @param pointCalculator The way to calculate points upon collisions.
      */
     protected Game(PointCalculator pointCalculator) {
         this.pointCalculator = pointCalculator;
@@ -91,10 +89,8 @@ public abstract class Game implements LevelObserver {
     /**
      * Moves the specified player one square in the given direction.
      *
-     * @param player
-     *            The player to move.
-     * @param direction
-     *            The direction to move in.
+     * @param player    The player to move.
+     * @param direction The direction to move in.
      */
     public void move(Player player, Direction direction) {
         if (isInProgress()) {

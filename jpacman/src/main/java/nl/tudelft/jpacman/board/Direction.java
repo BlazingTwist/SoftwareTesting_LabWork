@@ -3,7 +3,7 @@ package nl.tudelft.jpacman.board;
 /**
  * An enumeration of possible directions on a two-dimensional square grid.
  *
- * @author Jeroen Roosen 
+ * @author Jeroen Roosen
  */
 public enum Direction {
 
@@ -42,12 +42,10 @@ public enum Direction {
     /**
      * Creates a new Direction with the given parameters.
      *
-     * @param deltaX
-     *            The delta x (width difference) to an element in the direction
-     *            in a matrix with 0,0 (x,y) as its top-left element.
-     * @param deltaY
-     *            The delta y (height difference) to an element in the direction
-     *            in a matrix with 0,0 (x,y) as its top-left element.
+     * @param deltaX The delta x (width difference) to an element in the direction
+     *               in a matrix with 0,0 (x,y) as its top-left element.
+     * @param deltaY The delta y (height difference) to an element in the direction
+     *               in a matrix with 0,0 (x,y) as its top-left element.
      */
     Direction(int deltaX, int deltaY) {
         this.deltaX = deltaX;
@@ -56,7 +54,7 @@ public enum Direction {
 
     /**
      * @return The delta x (width difference) for a single step in this
-     *         direction, in a matrix with 0,0 (x,y) as its top-left element.
+     * direction, in a matrix with 0,0 (x,y) as its top-left element.
      */
     public int getDeltaX() {
         return deltaX;
@@ -64,7 +62,7 @@ public enum Direction {
 
     /**
      * @return The delta y (height difference) for a single step in this
-     *         direction, in a matrix with 0,0 (x,y) as its top-left element.
+     * direction, in a matrix with 0,0 (x,y) as its top-left element.
      */
     public int getDeltaY() {
         return deltaY;

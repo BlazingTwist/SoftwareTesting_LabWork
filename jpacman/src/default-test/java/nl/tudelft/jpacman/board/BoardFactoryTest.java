@@ -1,18 +1,16 @@
 package nl.tudelft.jpacman.board;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
+import java.util.Arrays;
 import nl.tudelft.jpacman.sprite.PacManSprites;
-
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
+import static org.mockito.Mockito.mock;
 
 /**
  * Tests the linking of squares done by the board factory.
  *
- * @author Jeroen Roosen 
+ * @author Jeroen Roosen
  */
 class BoardFactoryTest {
 
