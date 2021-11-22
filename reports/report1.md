@@ -36,10 +36,39 @@ However, it is absolutely fine, that the smoke test provides such a general erro
 If we execute all test cases, it is easy to identify that something about navigating the board does not work correctly.  
 Unfortunately gradle does not execute our `DirectionTest` class, which makes the issue strikingly obvious, because the `DirectionTest` is not part of the `default-test`s.
 
+<br/>
 
 # Exercise 9
 
 ### *"Then, provide at most two paragraphs explaining how Game, Unit, Board, and Level classes are related to each other."*
 
-A List of Ghosts(which extends from Class `Unit`) and a `Board` is passed to the `Level` class on initialisation.
+A List of Ghosts(which extends from Class `Unit`) and a `Board` is passed to the `Level` class on initialisation.  
 In the `Game` class the methods from the `Level` class are used to manage/controll the running Game.
+
+
+<br/>
+
+# Exercise 12
+
+### *"Provide a domain matrix for the desired behavior of the boundary values in the withinBorders method."*
+
+![Domain matrix](Exercise_12_img1.png)
+
+**Further Considerations:**  
+`Width` and `Height` are variables as well from the set of positive natural numbers (including `0`).  
+We should test these boundaries ("`Width = 0`" and/or "`Height = 0`") as well, however, given the structure of two-dimensional Arrays, we cannot test for "`Width = 0 && Height > 0`".
+
+Furthermore, assuming a `Width` of `0` reveals an inadequacy with the `Board` class, since `getHeight` will throw an exception.
+
+Our resulting domain matrix may look like this:  
+![Domain matrix](Exercise_12_img2.png)
+
+<br/>
+
+# Exercise 14
+
+### *"What can we do to avoid code repetition during the Arrange part of the unit test?"*
+
+It is important to specify the unit test as precisely as possible in the arrange phase.  
+This saves you from calling classes / methods etc. that are not absolutely necessary for the unittest.  
+The less complex the test, the lower the probability of code repetitions. 

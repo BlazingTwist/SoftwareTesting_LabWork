@@ -1,3 +1,10 @@
+# Students
+
+* Lukas Fritzsche - 227771
+* Eric Jarosch - 227271
+
+<br/>
+
 # Exercise 3
 
 ### *"Why can't we exhaustively test our entire software project? What should we do instead?"*
