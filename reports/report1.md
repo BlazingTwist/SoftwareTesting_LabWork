@@ -115,6 +115,8 @@ TODO
 
 # Exercise 16
 
+### *"Which one is a better assertion, supposing some `int a`? 1) `assertEquals(1, a);` or 2) `assertTrue(1 == a)`? Discuss the differences between both assertions."*
+
 It is generally always better to use the more "specific" assertion: `assertEquals` in this case.  
 assertEquals means "are two things equal?", whereas assertTrue just means "is this boolean true?".  
 When using `assertTrue`, the information that we're comparing two values for equality is not communicated to JUnit.
