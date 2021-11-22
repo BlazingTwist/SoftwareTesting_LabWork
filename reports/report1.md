@@ -52,3 +52,13 @@ Furthermore, assuming a `Width` of `0` reveals an inadequacy with the `Board` cl
 
 Our resulting domain matrix may look like this:  
 ![Domain matrix](Exercise_12_img2.png)
+
+<br/>
+
+# Exercise 14
+
+### *"What can we do to avoid code repetition during the Arrange part of the unit test?"*
+
+It is important to specify the unit test as precisely as possible in the arrange phase.  
+This saves you from calling classes / methods etc. that are not absolutely necessary for the unittest.  
+The less complex the test, the lower the probability of code repetitions. 
