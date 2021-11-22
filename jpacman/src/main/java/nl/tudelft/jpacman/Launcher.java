@@ -200,9 +200,8 @@ public class Launcher {
      * Main execution method for the Launcher.
      *
      * @param args The command line arguments - which are ignored.
-     * @throws IOException When a resource could not be read.
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         new Launcher().launch();
     }
 }

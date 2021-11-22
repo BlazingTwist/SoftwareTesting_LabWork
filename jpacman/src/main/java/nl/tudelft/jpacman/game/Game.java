@@ -28,7 +28,7 @@ public abstract class Game implements LevelObserver {
      * The algorithm used to calculate the points that
      * they player gets whenever some action happens.
      */
-    private PointCalculator pointCalculator;
+    private final PointCalculator pointCalculator;
 
     /**
      * Creates a new game.

@@ -60,10 +60,9 @@ class JPacmanFuzzer {
     /**
      * Quit the user interface when we're done.
      *
-     * @throws IOException when log writer cannot be closed.
      */
     @AfterEach
-    void tearDown() throws IOException {
+    void tearDown() {
         launcher.dispose();
     }
 
