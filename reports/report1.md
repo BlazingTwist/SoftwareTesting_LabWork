@@ -38,6 +38,16 @@ Unfortunately gradle does not execute our `DirectionTest` class, which makes the
 
 <br/>
 
+# Exercise 9
+
+### *"Then, provide at most two paragraphs explaining how Game, Unit, Board, and Level classes are related to each other."*
+
+A List of Ghosts(which extends from Class `Unit`) and a `Board` is passed to the `Level` class on initialisation.  
+In the `Game` class the methods from the `Level` class are used to manage/controll the running Game.
+
+
+<br/>
+
 # Exercise 12
 
 ### *"Provide a domain matrix for the desired behavior of the boundary values in the withinBorders method."*
