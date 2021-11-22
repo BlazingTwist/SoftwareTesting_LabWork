@@ -104,3 +104,53 @@ Our resulting domain matrix may look like this:
 It is important to specify the unit test as precisely as possible in the arrange phase.  
 This saves you from calling classes / methods etc. that are not absolutely necessary for the unit-test.  
 The less complex the test, the lower the probability of code repetitions. 
+
+<br/>
+
+# Exercise 15
+
+TODO
+
+<br/>
+
+# Exercise 16
+
+TODO
+
+<br/>
+
+# Exercise 17
+
+TODO
+
+<br/>
+
+# Exercise 18
+
+### *"Explain or eliminate checkstyle or SpotBugs violations that remain"*
+
+Currently, there is one remaining checkstyle violation:
+```
+[ant:checkstyle] [WARN] D:\Schule\Studium\Semester 5\SoftwareTesting\SoftwareTesting_LabWork\jpacman\src\main\java\nl\tudelft\jpacman\board\Board.java:61:13: Avoid inline conditionals. [AvoidInlineConditionals]
+```
+I have actively chosen to ignore this warning, because I personally strongly disagree with it.  
+I believe that ternary expressions for single (or sometimes two) conditions are at least just as readable as `if` statements, while offering a reduced footprint / less clutter.
+
+<br/>
+
+### *"Include a brief assessment of the additional adequacy achieved in JPACMAN, thanks to your new classes."*
+
+There are two new test classes: `ClydeTest` and `InkyTest` which aim to identify incorrect behaviour of the movement logic for the Ghosts `Clyde` and `Inky`.
+
+### *"Also reflect on your continuous integration server results"*
+
+Seeing our Github-Actions finally working correctly is quite satisfying, however - given that they have only recently been implemented - we have yet to get much use out of them.  
+Regardless, I am sure it won't be long until they spot an issue that we didn't before pushing.
+
+### *"And [reflect on] your commit behaviour"*
+
+I believe that our commit behaviour is - for the most part - presentable.  
+When committing individually, we try to create merge requests per exercise for the other person to review and merge.  
+Occassionally this is easier said than done, because one exercise may depend on the changes applied in another exercise.
+
+When committing together, commits may get more messy, as both parties have already seen the changes, but we still try to create merge requests as a means of documenting completed exercises.
