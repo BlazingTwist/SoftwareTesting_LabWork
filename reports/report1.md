@@ -15,9 +15,9 @@ The SmokeTest would cover all 3 of these classes, if it instantiated the `Defaul
 
 Yes the method move is covered by the LauncherSmokeTest.
 
-We are getting the exeption that the score is 10, but we expected 60.  
-Althought the exeption gave us the hint to search for the bug between the 2 marked assetions.  
-To fix the problem is quite simple, because we have got only one line of code after every assertion.
+We are receiving the error that the player-score is 10, but we expected a score of 60.  
+The error message is quite helpful, as it tells us between which asserts the error is encountered.  
+Since we only call one method between the assert statements, we know precisely which method is causing the anomalous behaviour.
 
 <br/>
 
@@ -57,6 +57,19 @@ Unfortunately gradle does not execute our `DirectionTest` class, which makes the
 A List of Ghosts(which extends from Class `Unit`) and a `Board` is passed to the `Level` class on initialisation.  
 In the `Game` class the methods from the `Level` class are used to manage/control the running Game.
 
+<br/>
+
+# Exercise 10
+
+*see added test class `ClydeTest`*  
+*or alternatively the relevant [Merge Request](https://github.com/BlazingTwist/SoftwareTesting_LabWork/pull/6)*
+
+<br/>
+
+# Exercise 11
+
+*see added test class `InkyTest`*  
+*or alternatively the relevant [Merge Request](https://github.com/BlazingTwist/SoftwareTesting_LabWork/pull/5)*
 
 <br/>
 
@@ -74,6 +87,13 @@ Furthermore, assuming a `Width` of `0` reveals an inadequacy with the `Board` cl
 
 Our resulting domain matrix may look like this:  
 ![Domain matrix](Exercise_12_img2.png)
+
+<br/>
+
+# Exercise 13
+
+*see modified test class `BoardTest`*  
+*or alternatively the relevant [Merge Request](https://github.com/BlazingTwist/SoftwareTesting_LabWork/pull/9)*
 
 <br/>
 
