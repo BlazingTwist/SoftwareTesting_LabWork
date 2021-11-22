@@ -30,6 +30,15 @@ public class BoardTest {
         assertThat(board.invariant()).isTrue();
     }
 
+    /**
+     * Executes a boundary test for the `withinBorders` method.
+     *
+     * @param x        the x coordinate to check
+     * @param y        the y coordinate to check
+     * @param width    the board width
+     * @param height   the board height
+     * @param expected the expected result of `withinBorders`
+     */
     @ParameterizedTest
     @CsvSource({
         "0, 2, 2, 11, TRUE",
