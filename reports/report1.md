@@ -121,7 +121,13 @@ TODO
 
 # Exercise 17
 
-TODO
+### *"Do we need to have specific tests for [private methods] ? Why? Why not?"*
+
+We do not need to test private methods.  
+Private methods are not supposed to be directly accessible from the outside, that means two things:
+1. Assuming they are not unused (and no reflection shenanigans are involed), there must be a public method that uses the private method.  
+    We should test the private method indirectly through the public method(s) that access it.
+2. Private methods are not supposed to be accessed from the outside, so testing them like that seems inappropriate to me.
 
 <br/>
 
