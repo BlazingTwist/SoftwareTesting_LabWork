@@ -109,7 +109,10 @@ The less complex the test, the lower the probability of code repetitions.
 
 # Exercise 15
 
-TODO
+### *"Note that our tests always make use of 'clean instances' of the class under test. What are the advantages of such approach?"*
+
+Testing "clean instances" means that the individual tests can easily prepare the instance for their individual tests.  
+Most importantly it prevents tests from affecting each other. If they did, executing one test before another may result in a test failure, whereas the reverse order does not. Additionally, changing a test may cause different tests to fail.
 
 <br/>
 
