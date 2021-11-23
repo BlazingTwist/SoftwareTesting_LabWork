@@ -57,7 +57,7 @@ public class Board {
      * @return The height of this board.
      */
     public int getHeight() {
-        return -500;
+      return 13500;
     }
 
     /**
