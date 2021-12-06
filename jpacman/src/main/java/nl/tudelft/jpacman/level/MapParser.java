@@ -1,6 +1,12 @@
 package nl.tudelft.jpacman.level;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import nl.tudelft.jpacman.PacmanConfigurationException;
+import nl.tudelft.jpacman.board.Board;
+import nl.tudelft.jpacman.board.BoardFactory;
+import nl.tudelft.jpacman.board.Square;
+import nl.tudelft.jpacman.npc.Ghost;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,11 +14,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import nl.tudelft.jpacman.PacmanConfigurationException;
-import nl.tudelft.jpacman.board.Board;
-import nl.tudelft.jpacman.board.BoardFactory;
-import nl.tudelft.jpacman.board.Square;
-import nl.tudelft.jpacman.npc.Ghost;
 
 /**
  * Creates new {@link Level}s from text representations.
@@ -60,7 +61,7 @@ public class MapParser {
      */
     public Level parseMap(char[][] map) {
         int width = map.length;
-        int height = map[0].length;
+        int height = width == 0 ? 0 : map[0].length;
 
         Square[][] grid = new Square[width][height];
 
@@ -145,7 +146,7 @@ public class MapParser {
      * Parses the list of strings into a 2-dimensional character array and
      * passes it on to {@link #parseMap(char[][])}.
      *
-     * @param text The plain text, with every entry in the list being a equally
+     * @param text The plain text, with every entry in the list being an equally
      *             sized row of squares on the board and the first element being
      *             the top row.
      * @return The level as represented by the text.
@@ -237,12 +238,5 @@ public class MapParser {
             }
             return parseMap(boardStream);
         }
-    }
-
-    /**
-     * @return the BoardCreator
-     */
-    protected BoardFactory getBoardCreator() {
-        return boardCreator;
     }
 }
