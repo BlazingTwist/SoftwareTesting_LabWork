@@ -8,6 +8,7 @@ import nl.tudelft.jpacman.points.PointCalculator;
 
 import java.util.List;
 
+
 /**
  * A basic implementation of a Pac-Man game.
  *
@@ -46,12 +47,10 @@ public abstract class Game implements LevelObserver {
      */
     public void start() {
         synchronized (progressLock) {
-            System.out.println("in prog: " + isInProgress() + " | anyAlive: " + getLevel().isAnyPlayerAlive());
             if (isInProgress()) {
                 return;
             }
             if (getLevel().isAnyPlayerAlive() && getLevel().remainingPellets() > 0) {
-                System.out.println("STARTING");
                 inProgress = true;
                 getLevel().addObserver(this);
                 getLevel().start();
