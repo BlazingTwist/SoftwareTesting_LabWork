@@ -26,7 +26,7 @@ public class PlayerCollisionsTest {
     @Test
     public void testPlayervsPlayer(){
 
-        pC.collide(playerMock, playerMock);
+        pC.collide(ghostMock, playerMock);
 
         Mockito.verify(pC, Mockito.times(0)).playerVersusPellet(playerMock, pelletMock);
         Mockito.verify(pC, Mockito.times(0)).playerVersusGhost(playerMock, ghostMock);
