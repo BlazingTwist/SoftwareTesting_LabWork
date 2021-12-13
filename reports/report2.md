@@ -14,10 +14,20 @@
 
 <br/>
 
+
 # Exercise 27
 
 ### *"See the Ghost#randomMove() method. It makes use of Java’s Random class to generate random numbers. How would you test such method, if everytime you execute the method you get a different answer? Explain your idea."*
 
 In this case I would test that one of the possible results of this method is present as the return value of this function. In relation to JPacman, I would create a level where I know what returns I can get and then test until I get all possible returns. 
+
+<br/>
+
+
+# Exercise 28
+
+### *"JPacman contains a test that can become a flaky test: see LauncherSmokeTest.smokeTest. Read the test and find out why this test can be flaky. Next, discuss other reasons why a test can become flaky and what can we do to avoid them."*
+
+The smoke test only works in the current level. In another level he will fail. In addition, he can also fail if something is changed in the "attack" algorithms of the ghosts. The likelihood of flaky tests increases with the size of our tests. The larger it is, the flakier it can be. We can reduce this by considering beforehand what we want to test in order to avoid unnecessary tests and thus to keep the tests smaller. 
 
 <br/>
