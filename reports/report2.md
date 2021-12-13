@@ -13,3 +13,11 @@
 | Ghost| Pellet | Pellet isn´t visible anymore|
 
 <br/>
+
+# Exercise 27
+
+### *"See the Ghost#randomMove() method. It makes use of Java’s Random class to generate random numbers. How would you test such method, if everytime you execute the method you get a different answer? Explain your idea."*
+
+In this case I would test that one of the possible results of this method is present as the return value of this function. In relation to JPacman, I would create a level where I know what returns I can get and then test until I get all possible returns. 
+
+<br/>
