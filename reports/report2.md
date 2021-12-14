@@ -1,3 +1,10 @@
+# Students
+
+* Eric Jarosch - 227271
+* Lukas Fritzsche - 227771
+
+<br/>
+
 # Exercise 20
 
 ![](Exercise_20_assignment.png)
@@ -166,3 +173,43 @@ Conversely, the class probably should be mocked, if the desired behaviour is dif
 In regards to test levels, I would argue that Mocking has no place in System Testing, as the goal is to verify the System as a whole.  
 In Integration Testing, Mocking can be reasonable, but should be limited to the Modules that are not exercised by the Test.  
 For example: if testing the communication between Module-A and Module-B requires the presence of Module-C which is *not* intended to be under test, then Mocking Module-C is reasonable.
+
+<div class="page"/>
+
+# Submission
+
+### *"Explain or eliminate checkstyle or SpotBugs violations that remain"*
+
+The same Checkstyle violation from report1 is still present ("Avoid inline conditionals") and has now tripled.  
+Because of this (and a lack of feedback to Part1), we have disabled the `AvoidInlineConditionals`-module.
+
+<br/>
+
+### *"Include a brief assessment of the additional adequacy achieved in JPACMAN, thanks to your new classes."*
+
+There are three new test classes:
+* `PlayerCollisionTest` - verifies behaviour of CollisionMap implementations.
+* `GameTest` - verifies that the `Game::start()` method behaves as expected.
+* `MapParserTest` - extensively exercises the `MapParser` class.
+
+<br/>
+
+### *"Also reflect on your continuous integration server results"*
+
+This time our Github-Actions actually caught a failing test on the master branch.  
+This has lead to a re-evaluation of the correctness of our `PlayerCollisionsTest`, which otherwise may have gone unnoticed.
+
+<br/>
+
+### *"And [reflect on] your commit behaviour"*
+
+For the most part, our commit behaviour has not changed much.  
+But I do believe that the team has become familiar with the workflow.  
+Commits seem to occur frequently, as of writing there are 121 commits after completing 32 exercises.
+
+<br/>
+
+### *"And [reflect on] the new knowledge acquired."*
+
+This labwork gave us good insights into working with mocks and handling with coverage.  
+We have also become more familiar with the intricacies of JPacman, specifically map-parsing and unit-collisions.
