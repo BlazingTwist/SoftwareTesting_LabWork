@@ -1,10 +1,21 @@
 package nl.tudelft.jpacman.level;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 import nl.tudelft.jpacman.board.Unit;
 import nl.tudelft.jpacman.npc.Ghost;
+import nl.tudelft.jpacman.npc.ghost.Blinky;
+import nl.tudelft.jpacman.npc.ghost.Clyde;
+import nl.tudelft.jpacman.npc.ghost.Inky;
+import nl.tudelft.jpacman.npc.ghost.Pinky;
 import nl.tudelft.jpacman.points.PointCalculator;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.mockito.ArgumentMatchers.any;
 import org.mockito.Mockito;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 
 /**
@@ -12,81 +23,136 @@ import org.mockito.Mockito;
  */
 public class PlayerCollisionsTest {
 
-    PointCalculator pcMock = Mockito.mock(PointCalculator.class);
-    Player playerMock = Mockito.mock(Player.class);
-    Ghost ghostMock = Mockito.mock(Ghost.class);
-    Pellet pelletMock = Mockito.mock(Pellet.class);
-    Unit unitMock = Mockito.mock(Unit.class);
+    private static final List<Class<? extends Unit>> players = List.of(Player.class);
+    private static final List<Class<? extends Unit>> ghosts = Arrays.asList(Blinky.class, Clyde.class, Ghost.class, Inky.class, Pinky.class);
+    private static final List<Class<? extends Unit>> collisionLess = List.of(Unit.class);
+    private static final List<Class<? extends Unit>> pellets = List.of(Pellet.class);
 
-    PlayerCollisions pC = Mockito.spy(new PlayerCollisions(pcMock));
+    private PlayerCollisions playerCollisions = null;
 
     /**
-     *  Verifies that the collision between the player and another player isn´t recognized.
+     * Called before every Test.
      */
-    @Test
-    public void testPlayervsPlayer(){
-
-        pC.collide(ghostMock, playerMock);
-
-        Mockito.verify(pC, Mockito.times(0)).playerVersusPellet(playerMock, pelletMock);
-        Mockito.verify(pC, Mockito.times(0)).playerVersusGhost(playerMock, ghostMock);
+    @BeforeEach
+    public void setUp() {
+        playerCollisions = Mockito.spy(new PlayerCollisions(
+            Mockito.mock(PointCalculator.class)
+        ));
     }
 
     /**
-     *  Verifies that the collision between an Moving-Unit(Player, Ghost) and an NonMoving-Unit(Pellets, BasicUnit, Unit) isn´t recognized.
+     * Verify that Players don't collide with another.
      */
     @Test
-    public void testMovingvsNonmoving(){
+    public void test_collide_playerOnPlayer() {
+        for (Class<? extends Unit> playerClassA : players) {
+            Unit playerA = Mockito.mock(playerClassA);
+            for (Class<? extends Unit> playerClassB : players) {
+                Unit playerB = Mockito.mock(playerClassB);
 
-        pC.collide(playerMock, unitMock);
+                playerCollisions.collide(playerA, playerB);
+            }
+        }
 
-        Mockito.verify(pC, Mockito.times(0)).playerVersusPellet(playerMock, pelletMock);
-        Mockito.verify(pC, Mockito.times(0)).playerVersusGhost(playerMock, ghostMock);
+        verify(playerCollisions, times(0)).playerVersusGhost(any(), any());
+        verify(playerCollisions, times(0)).playerVersusPellet(any(), any());
     }
 
     /**
-     * Verifies that the collision between the player and a pellet is recognized.
+     * Verify that Players correctly collide with Pellets.
      */
     @Test
-    public void testPlayervsPellet(){
+    public void test_collide_playerOnPellet() {
+        int collisionCounter = 0;
+        for (Class<? extends Unit> playerClass : players) {
+            Unit player = Mockito.mock(playerClass);
+            for (Class<? extends Unit> pelletClass : pellets) {
+                Unit pellet = Mockito.mock(pelletClass);
 
-        pC.collide(playerMock, pelletMock);
+                playerCollisions.collide(player, pellet);
+                playerCollisions.collide(pellet, player);
+                collisionCounter += 2;
+            }
+        }
 
-        Mockito.verify(pC, Mockito.times(1)).playerVersusPellet(playerMock, pelletMock);
+        verify(playerCollisions, times(0)).playerVersusGhost(any(), any());
+        verify(playerCollisions, times(collisionCounter)).playerVersusPellet(any(), any());
     }
 
     /**
-     * Verifies that the collision between the player and a ghost is recognized.
+     * Verify that Ghosts don't collide with another.
      */
     @Test
-    public void testPlayervsGhost(){
+    public void test_collide_ghostOnGhost() {
+        for (Class<? extends Unit> ghostClassA : ghosts) {
+            Unit ghostA = Mockito.mock(ghostClassA);
+            for (Class<? extends Unit> ghostClassB : ghosts) {
+                Unit ghostB = Mockito.mock(ghostClassB);
 
-        pC.collide(playerMock, ghostMock);
+                playerCollisions.collide(ghostA, ghostB);
+            }
+        }
 
-        Mockito.verify(pC, Mockito.times(1)).playerVersusGhost(playerMock, ghostMock);
+        verify(playerCollisions, times(0)).playerVersusGhost(any(), any());
+        verify(playerCollisions, times(0)).playerVersusPellet(any(), any());
     }
 
     /**
-     * Verifies that the collision between a ghost and another ghost isn´t recognized.
+     * Verify that Ghosts don't collide with Pellets.
      */
     @Test
-    public void testGhostvsGhost(){
+    public void test_collide_ghostOnPellet(){
+        for (Class<? extends Unit> ghostClass : ghosts) {
+            Unit ghost = Mockito.mock(ghostClass);
+            for (Class<? extends Unit> pelletClass : pellets) {
+                Unit pellet = Mockito.mock(pelletClass);
 
-        pC.collide(ghostMock,ghostMock);
+                playerCollisions.collide(ghost, pellet);
+                playerCollisions.collide(pellet, ghost);
+            }
+        }
 
-        Mockito.verify(pC, Mockito.times(0)).playerVersusPellet(playerMock, pelletMock);
-        Mockito.verify(pC, Mockito.times(0)).playerVersusGhost(playerMock, ghostMock);
+        verify(playerCollisions, times(0)).playerVersusGhost(any(), any());
+        verify(playerCollisions, times(0)).playerVersusPellet(any(), any());
     }
 
     /**
-     * Verifies that the collision between a ghost and a pellet isn´t recognized.
+     * Verify that collisionLess Units don't collide with Players and Ghosts.
      */
     @Test
-    public void testGhostvsPellet(){
+    public void test_collide_movingOnCollisionLess() {
+        Stream.concat(players.stream(), ghosts.stream()).forEach(moverClass -> {
+            Unit mover = Mockito.mock(moverClass);
+            for (Class<? extends Unit> collisionClass : collisionLess) {
+                Unit collisionLessUnit = Mockito.mock(collisionClass);
 
-        pC.collide(playerMock, pelletMock);
+                playerCollisions.collide(mover, collisionLessUnit);
+                playerCollisions.collide(collisionLessUnit, mover);
+            }
+        });
 
-        Mockito.verify(pC, Mockito.times(0)).playerVersusPellet(playerMock, pelletMock);
-        Mockito.verify(pC, Mockito.times(0)).playerVersusGhost(playerMock, ghostMock);
+        verify(playerCollisions, times(0)).playerVersusGhost(any(), any());
+        verify(playerCollisions, times(0)).playerVersusPellet(any(), any());
+    }
+
+    /**
+     * Verify that Players and Ghosts collide with each other.
+     */
+    @Test
+    public void test_collide_playerOnGhost(){
+        int collisionCounter = 0;
+        for (Class<? extends Unit> playerClass : players) {
+            Unit player = Mockito.mock(playerClass);
+            for (Class<? extends Unit> ghostClass : ghosts) {
+                Unit ghost = Mockito.mock(ghostClass);
+
+                playerCollisions.collide(player, ghost);
+                playerCollisions.collide(ghost, player);
+                collisionCounter += 2;
+            }
+        }
+
+        verify(playerCollisions, times(collisionCounter)).playerVersusGhost(any(), any());
+        verify(playerCollisions, times(0)).playerVersusPellet(any(), any());
     }
 }
