@@ -61,7 +61,7 @@
 | Ghost  | Pellet       | Pellet isn´t visible anymore   |
 | Ghost  | Ghost        | ghosts occupy the same square  |
 
-<br/>
+<div class="page"/>
 
 # Exercise 24
 
@@ -79,7 +79,7 @@
 *see modified test class `PlayerCollisionsTest`*  
 *or alternatively the relevant [Merge Request](https://github.com/BlazingTwist/SoftwareTesting_LabWork/pull/28)*
 
-<br/>
+<div class="page"/>
 
 # Exercise 26
 
@@ -98,7 +98,7 @@ The added `PlayerCollisionsTest` supports testing Classes that implement the `Co
 It exercises all scenarios described in Exercise_23, except for those that do not involve `Unit`s ("empty Square" and "Wall").  
 Currently collisions between Units that are assumed to be stationary are not checked (e.g. Pellet on Pellet).
 
-<br/>
+<div class="page"/>
 
 # Exercise 27
 
@@ -114,7 +114,7 @@ If that was the case, it would also mean that we can mock the generator and elim
 
 ![](Exercise_28_assignment.png)
 
-The smoke test only works in the current level. In another level he will fail. In addition, he can also fail if something is changed in the "attack" algorithms of the ghosts. The likelihood of flaky tests increases with the size of our tests. The larger it is, the flakier it can be. We can reduce this by considering beforehand what we want to test in order to avoid unnecessary tests and thus to keep the tests smaller. 
+The smoke test only works in the current level. In another level it may fail. In addition, it can also fail if something is changed in the "attack" algorithms of the ghosts. The likelihood of flaky tests increases with the size of our tests. The larger it is, the flakier it can be. We can reduce this by considering beforehand what we want to test in order to avoid unnecessary tests and thus to keep the tests smaller.
 
 <br/>
 
@@ -122,9 +122,12 @@ The smoke test only works in the current level. In another level he will fail. I
 
 ![](Exercise_29_assignment.png)
 
-100% code coverage is a nice thing, but in the most cases it is not necessary. The advantage is that you can be sure that the code does what we expect. The disadvantage is that you usually need a lot of resources to achieve 100% code coverage. Such metrics are good for assessing how error-free the code is. For core elements of the code, you should achieve a very high percentage of the metrics, but for less important elements, in my opinion, 80% is often enough.
+100% code coverage is a nice thing, but in most cases it is not necessary or not realistic.  
+The advantage is that you can be sure that the code does what you expect.  
+The disadvantage is that you usually need a lot of resources to achieve 100% code coverage.  
+Such metrics are good for assessing how error-free the code is. For core elements of the code, you should achieve a very high percentage of the metrics, but for less important elements, in my opinion, 80% is enough.
 
-</br>
+<div class="page"/>
 
 # Exercise 30
 
