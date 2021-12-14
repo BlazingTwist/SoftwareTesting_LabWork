@@ -144,9 +144,17 @@ I see three possible disadvantages with mocking:
 
 ![](Exercise_31_assignment.png)
 
-TODO
+Unit Tests may become slow when the unit that is being tested involves too many dependencies.  
+We can solve this issue by using Mocks and/or limiting our tests to only exercise the behaviour of the Unit under test.
 
-<br/>
+Complex tests can also slow down the Test Suite.  
+Here we should identify what exactly is being tested and reducing the test accordingly.
+
+Lastly, The Test Suite may become slow if there are too many tests / the setup of tests is too complex.  
+Since the setup will be executed once for every test, the effort spent on executing setup scales proportionally with the amount of tests.  
+There is not much we can do to fix this, but one possibility is to identify the exact requirements of each test and minimizing the setup-code accordingly.
+
+<div class="page"/>
 
 # Exercise 32
 
