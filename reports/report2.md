@@ -67,7 +67,8 @@
 
 ![](Exercise_24_assignment.png)
 
-TODO
+*see added test class `PlayerCollisionsTest`*  
+*or alternatively the relevant [Merge Request](https://github.com/BlazingTwist/SoftwareTesting_LabWork/pull/27)*
 
 <br/>
 
