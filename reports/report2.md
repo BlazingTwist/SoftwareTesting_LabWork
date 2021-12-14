@@ -50,13 +50,16 @@
 
 |Collider|Collidee|Consequence|
 |--------|--------|-----------|
-| Player |empty Square|points stay the same|
-| Player | Wall | move is not conducted|
-| Player | Pellet | earn Points, Pellet disappears|
-| Player | Ghost |Pacman dies, Game over|
-| Ghost | emptySquare | nothing Happens|
-| Ghost | Player| Game over|
-| Ghost| Pellet | Pellet isn´t visible anymore|
+| Player | empty Square | points stay the same           |
+| Player | Wall         | move is not conducted          |
+| Player | Player       | players occupy the same square |
+| Player | Pellet       | earn Points, Pellet disappears |
+| Player | Ghost        | Pacman dies, Game over         |
+| Ghost  | emptySquare  | ghost occupies empty square    |
+| Ghost  | Wall         | move is not conducted          |
+| Ghost  | Player       | Game over                      |
+| Ghost  | Pellet       | Pellet isn´t visible anymore   |
+| Ghost  | Ghost        | ghosts occupy the same square  |
 
 <br/>
 
