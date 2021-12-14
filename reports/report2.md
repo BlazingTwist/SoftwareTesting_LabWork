@@ -152,4 +152,9 @@ TODO
 
 ![](Exercise_32_assignment.png)
 
-TODO
+In my opinion, if the desired behaviour can easily be achieved without mocking (just using the concrete implementation), then that class should not be mocked.  
+Conversely, the class probably should be mocked, if the desired behaviour is difficult to cause normally (e.g. testing anomalous behaviour).
+
+In regards to test levels, I would argue that Mocking has no place in System Testing, as the goal is to verify the System as a whole.  
+In Integration Testing, Mocking can be reasonable, but should be limited to the Modules that are not exercised by the Test.  
+For example: if testing the communication between Module-A and Module-B requires the presence of Module-C which is *not* intended to be under test, then Mocking Module-C is reasonable.
