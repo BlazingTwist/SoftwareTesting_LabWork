@@ -37,7 +37,10 @@
 
 ![](Exercise_22_assignment.png)
 
-TODO
+*see added test class `GameTest`*  
+*or alternatively the relevant [Merge Request](https://github.com/BlazingTwist/SoftwareTesting_LabWork/pull/26)*
+
+![](Exercise_22_coverage.png)
 
 <br/>
 
