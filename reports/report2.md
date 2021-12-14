@@ -104,7 +104,9 @@ Currently collisions between Units that are assumed to be stationary are not che
 
 ![](Exercise_27_assignment.png)
 
-In this case I would test that one of the possible results of this method is present as the return value of this function. In relation to JPacman, I would create a level where I know what returns I can get and then test until I get all possible returns. 
+In this case I would test that one of the possible results of this method is present as the return value of this function.  
+Currently, the `randomMove()` method creates a new Random Number Generator every time it is called - that smells! Instead it should obtain a new random number from an existing generator.  
+If that was the case, it would also mean that we can mock the generator and eliminate the randomness in our tests.
 
 <br/>
 
