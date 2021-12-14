@@ -85,7 +85,18 @@
 
 ![](Exercise_26_assignment.png)
 
-TODO
+Coverage before:
+![](Exercise_26_cov_before_tests.png)
+
+Coverage after:
+![](Exercise_26_cov_after_tests.png)
+
+The remaining uncovered line in `CollisionInteractionMap`
+![](Exercise_26_uncovered_line.png)
+
+The added `PlayerCollisionsTest` supports testing Classes that implement the `CollisionMap` interface *and* make use of a `PointCalculator`.  
+It exercises all scenarios described in Exercise_23, except for those that do not involve `Unit`s ("empty Square" and "Wall").  
+Currently collisions between Units that are assumed to be stationary are not checked (e.g. Pellet on Pellet).
 
 <br/>
 
