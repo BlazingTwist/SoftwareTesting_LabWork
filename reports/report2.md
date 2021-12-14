@@ -133,7 +133,10 @@ Such metrics are good for assessing how error-free the code is. For core element
 
 ![](Exercise_30_assignment.png)
 
-TODO
+I see three possible disadvantages with mocking:
+1. Performance - Mocking makes use of reflection, which *can* be slower than the classes that are being mocked.
+2. Refactoring - From what I've seen, mocking can get closely coupled to the class that is being mocked. That means that seemingly simple refactoring could lead to a long string of Tests that need to be updated.
+3. Bugs obscured by mocking - typically, getters are only indirectly tested (because "it's a getter, what could go wrong here"), but if every test is mocking this getter, we never ensure that the getter actually works at all.
 
 <br/>
 
