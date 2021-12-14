@@ -1,5 +1,6 @@
 package nl.tudelft.jpacman.level;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -33,16 +34,18 @@ public class PlayerCollisionsTest {
     private static final List<Class<? extends Unit>> COLLISION_LESS = List.of(Unit.class);
     private static final List<Class<? extends Unit>> PELLETS = List.of(Pellet.class);
 
-    private PlayerCollisions playerCollisions = null;
+    private PointCalculator pointCalculatorMock = null;
+    private List<CollisionMap> collisionMapsToTest = null;
 
     /**
      * Called before every Test.
      */
     @BeforeEach
     public void setUp() {
-        playerCollisions = Mockito.spy(new PlayerCollisions(
-            Mockito.mock(PointCalculator.class)
-        ));
+        pointCalculatorMock = Mockito.mock(PointCalculator.class);
+        collisionMapsToTest = new ArrayList<>();
+        collisionMapsToTest.add(Mockito.spy(new PlayerCollisions(pointCalculatorMock)));
+        collisionMapsToTest.add(Mockito.spy(new DefaultPlayerInteractionMap(pointCalculatorMock)));
     }
 
     /**
@@ -55,12 +58,12 @@ public class PlayerCollisionsTest {
             for (Class<? extends Unit> playerClassB : PLAYERS) {
                 Unit playerB = Mockito.mock(playerClassB);
 
-                playerCollisions.collide(playerA, playerB);
+                collisionMapsToTest.forEach(map -> map.collide(playerA, playerB));
             }
         }
 
-        verify(playerCollisions, times(0)).playerVersusGhost(any(), any());
-        verify(playerCollisions, times(0)).playerVersusPellet(any(), any());
+        verify(pointCalculatorMock, times(0)).collidedWithAGhost(any(), any());
+        verify(pointCalculatorMock, times(0)).consumedAPellet(any(), any());
     }
 
     /**
@@ -74,14 +77,18 @@ public class PlayerCollisionsTest {
             for (Class<? extends Unit> pelletClass : PELLETS) {
                 Unit pellet = Mockito.mock(pelletClass);
 
-                playerCollisions.collide(player, pellet);
-                playerCollisions.collide(pellet, player);
+                collisionMapsToTest.forEach(map -> {
+                    map.collide(player, pellet);
+                    map.collide(pellet, player);
+                });
                 collisionCounter += 2;
             }
         }
 
-        verify(playerCollisions, times(0)).playerVersusGhost(any(), any());
-        verify(playerCollisions, times(collisionCounter)).playerVersusPellet(any(), any());
+        verify(pointCalculatorMock, times(0)).collidedWithAGhost(any(), any());
+
+        verify(pointCalculatorMock, times(collisionCounter * collisionMapsToTest.size()))
+            .consumedAPellet(any(), any());
     }
 
     /**
@@ -94,12 +101,12 @@ public class PlayerCollisionsTest {
             for (Class<? extends Unit> ghostClassB : GHOSTS) {
                 Unit ghostB = Mockito.mock(ghostClassB);
 
-                playerCollisions.collide(ghostA, ghostB);
+                collisionMapsToTest.forEach(map -> map.collide(ghostA, ghostB));
             }
         }
 
-        verify(playerCollisions, times(0)).playerVersusGhost(any(), any());
-        verify(playerCollisions, times(0)).playerVersusPellet(any(), any());
+        verify(pointCalculatorMock, times(0)).collidedWithAGhost(any(), any());
+        verify(pointCalculatorMock, times(0)).consumedAPellet(any(), any());
     }
 
     /**
@@ -112,13 +119,15 @@ public class PlayerCollisionsTest {
             for (Class<? extends Unit> pelletClass : PELLETS) {
                 Unit pellet = Mockito.mock(pelletClass);
 
-                playerCollisions.collide(ghost, pellet);
-                playerCollisions.collide(pellet, ghost);
+                collisionMapsToTest.forEach(map -> {
+                    map.collide(ghost, pellet);
+                    map.collide(pellet, ghost);
+                });
             }
         }
 
-        verify(playerCollisions, times(0)).playerVersusGhost(any(), any());
-        verify(playerCollisions, times(0)).playerVersusPellet(any(), any());
+        verify(pointCalculatorMock, times(0)).collidedWithAGhost(any(), any());
+        verify(pointCalculatorMock, times(0)).consumedAPellet(any(), any());
     }
 
     /**
@@ -131,13 +140,15 @@ public class PlayerCollisionsTest {
             for (Class<? extends Unit> collisionClass : COLLISION_LESS) {
                 Unit collisionLessUnit = Mockito.mock(collisionClass);
 
-                playerCollisions.collide(mover, collisionLessUnit);
-                playerCollisions.collide(collisionLessUnit, mover);
+                collisionMapsToTest.forEach(map -> {
+                    map.collide(mover, collisionLessUnit);
+                    map.collide(collisionLessUnit, mover);
+                });
             }
         });
 
-        verify(playerCollisions, times(0)).playerVersusGhost(any(), any());
-        verify(playerCollisions, times(0)).playerVersusPellet(any(), any());
+        verify(pointCalculatorMock, times(0)).collidedWithAGhost(any(), any());
+        verify(pointCalculatorMock, times(0)).consumedAPellet(any(), any());
     }
 
     /**
@@ -151,13 +162,17 @@ public class PlayerCollisionsTest {
             for (Class<? extends Unit> ghostClass : GHOSTS) {
                 Unit ghost = Mockito.mock(ghostClass);
 
-                playerCollisions.collide(player, ghost);
-                playerCollisions.collide(ghost, player);
+                collisionMapsToTest.forEach(map -> {
+                    map.collide(player, ghost);
+                    map.collide(ghost, player);
+                });
                 collisionCounter += 2;
             }
         }
 
-        verify(playerCollisions, times(collisionCounter)).playerVersusGhost(any(), any());
-        verify(playerCollisions, times(0)).playerVersusPellet(any(), any());
+        verify(pointCalculatorMock, times(collisionCounter * collisionMapsToTest.size()))
+            .collidedWithAGhost(any(), any());
+
+        verify(pointCalculatorMock, times(0)).consumedAPellet(any(), any());
     }
 }
