@@ -2,17 +2,36 @@
 
 ![](Exercise_20_assignment.png)
 
-TODO
+*see added test class `MapParserTest`*  
+*or alternatively the relevant [Merge Request](https://github.com/BlazingTwist/SoftwareTesting_LabWork/pull/24)*
 
-<br/>
+|"Nice Weather"-Test|Method under Test|Summary|
+|:---|:---|:---|
+|test_parseMap_normalMap|parseMap(char[][] map)|Provides a typical Map and verifies that the Tiles `empty`, `wall`, `pellet` and `ghost` are created correctly.|
+|test_parseMap_validPlayerPosition|parseMap(char[][] map)|Provides a typical Map and verifies that the Player is correctly placed in the world.|
+|test_parseMap_validStringList|parseMap(List<String> text)|Verify that the overload is working as expected.|
+|test_parseMap_validInputStream|parseMap(InputStream source)|Verify that the overload is working as expected.|
+|test_parseMap_validMapName|parseMap(String mapName)|Verify that the overload is working as expected.|
+
+<div class="page"/>
 
 # Exercise 21
 
 ![](Exercise_21_assignment.png)
 
-TODO
+*see added test class `MapParserTest`*  
+*or alternatively the relevant [Merge Request](https://github.com/BlazingTwist/SoftwareTesting_LabWork/pull/24)*
 
-<br/>
+|"Bad Weather"-Test|Method under Test|Summary|
+|:---|:---|:---|
+|test_parseMap_emptyMap|parseMap(char[][] map)|Provides a completely empty map and verifies that it is handles correctly.|
+|test_parseMap_invalidCharacter|parseMap(char[][] map)|Verify that an exception is thrown when maps contain unknown characters.|
+|test_parseMap_invalidFormat|parseMap(List<String> text)|Verify that invalidly formatted maps raise an exception.|
+|test_parseMap_invalidMapName|parseMap(String mapName)|Verify that trying to parse a map that does not exist raises an exception.|
+|test_parseMap_throwsIOException|parseMap(String mapName)|Verify behaviour of parseMap, when the InputStream overload throws an exception.|
+
+
+<div class="page"/>
 
 # Exercise 22
 
