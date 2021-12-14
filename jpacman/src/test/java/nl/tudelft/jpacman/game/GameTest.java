@@ -31,7 +31,12 @@ public class GameTest {
     }
 
     /**
-     * A Test that exercises all branches of Game::start();
+     * A Test that exercises all branches of Game::start().
+     *
+     * @param gameAlreadyInProgress     if set to true, pretend that a game is already in progress
+     * @param noLivingPlayers           if set to true, pretend that there are no living players
+     * @param noPellets                 if set to true, pretend that there are no pellets in the level
+     * @param expectedTimesLevelStarted the amount of times `Level.start()` should be called
      */
     @ParameterizedTest
     @CsvSource({
