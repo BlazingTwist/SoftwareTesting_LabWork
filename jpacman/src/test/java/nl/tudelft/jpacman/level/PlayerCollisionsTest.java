@@ -23,10 +23,15 @@ import static org.mockito.Mockito.verify;
  */
 public class PlayerCollisionsTest {
 
-    private static final List<Class<? extends Unit>> players = List.of(Player.class);
-    private static final List<Class<? extends Unit>> ghosts = Arrays.asList(Blinky.class, Clyde.class, Ghost.class, Inky.class, Pinky.class);
-    private static final List<Class<? extends Unit>> collisionLess = List.of(Unit.class);
-    private static final List<Class<? extends Unit>> pellets = List.of(Pellet.class);
+    private static final List<Class<? extends Unit>> PLAYERS = List.of(Player.class);
+    private static final List<Class<? extends Unit>> GHOSTS = Arrays.asList(
+        Blinky.class,
+        Clyde.class,
+        Ghost.class,
+        Inky.class,
+        Pinky.class);
+    private static final List<Class<? extends Unit>> COLLISION_LESS = List.of(Unit.class);
+    private static final List<Class<? extends Unit>> PELLETS = List.of(Pellet.class);
 
     private PlayerCollisions playerCollisions = null;
 
@@ -45,9 +50,9 @@ public class PlayerCollisionsTest {
      */
     @Test
     public void test_collide_playerOnPlayer() {
-        for (Class<? extends Unit> playerClassA : players) {
+        for (Class<? extends Unit> playerClassA : PLAYERS) {
             Unit playerA = Mockito.mock(playerClassA);
-            for (Class<? extends Unit> playerClassB : players) {
+            for (Class<? extends Unit> playerClassB : PLAYERS) {
                 Unit playerB = Mockito.mock(playerClassB);
 
                 playerCollisions.collide(playerA, playerB);
@@ -64,9 +69,9 @@ public class PlayerCollisionsTest {
     @Test
     public void test_collide_playerOnPellet() {
         int collisionCounter = 0;
-        for (Class<? extends Unit> playerClass : players) {
+        for (Class<? extends Unit> playerClass : PLAYERS) {
             Unit player = Mockito.mock(playerClass);
-            for (Class<? extends Unit> pelletClass : pellets) {
+            for (Class<? extends Unit> pelletClass : PELLETS) {
                 Unit pellet = Mockito.mock(pelletClass);
 
                 playerCollisions.collide(player, pellet);
@@ -84,9 +89,9 @@ public class PlayerCollisionsTest {
      */
     @Test
     public void test_collide_ghostOnGhost() {
-        for (Class<? extends Unit> ghostClassA : ghosts) {
+        for (Class<? extends Unit> ghostClassA : GHOSTS) {
             Unit ghostA = Mockito.mock(ghostClassA);
-            for (Class<? extends Unit> ghostClassB : ghosts) {
+            for (Class<? extends Unit> ghostClassB : GHOSTS) {
                 Unit ghostB = Mockito.mock(ghostClassB);
 
                 playerCollisions.collide(ghostA, ghostB);
@@ -101,10 +106,10 @@ public class PlayerCollisionsTest {
      * Verify that Ghosts don't collide with Pellets.
      */
     @Test
-    public void test_collide_ghostOnPellet(){
-        for (Class<? extends Unit> ghostClass : ghosts) {
+    public void test_collide_ghostOnPellet() {
+        for (Class<? extends Unit> ghostClass : GHOSTS) {
             Unit ghost = Mockito.mock(ghostClass);
-            for (Class<? extends Unit> pelletClass : pellets) {
+            for (Class<? extends Unit> pelletClass : PELLETS) {
                 Unit pellet = Mockito.mock(pelletClass);
 
                 playerCollisions.collide(ghost, pellet);
@@ -121,9 +126,9 @@ public class PlayerCollisionsTest {
      */
     @Test
     public void test_collide_movingOnCollisionLess() {
-        Stream.concat(players.stream(), ghosts.stream()).forEach(moverClass -> {
+        Stream.concat(PLAYERS.stream(), GHOSTS.stream()).forEach(moverClass -> {
             Unit mover = Mockito.mock(moverClass);
-            for (Class<? extends Unit> collisionClass : collisionLess) {
+            for (Class<? extends Unit> collisionClass : COLLISION_LESS) {
                 Unit collisionLessUnit = Mockito.mock(collisionClass);
 
                 playerCollisions.collide(mover, collisionLessUnit);
@@ -139,11 +144,11 @@ public class PlayerCollisionsTest {
      * Verify that Players and Ghosts collide with each other.
      */
     @Test
-    public void test_collide_playerOnGhost(){
+    public void test_collide_playerOnGhost() {
         int collisionCounter = 0;
-        for (Class<? extends Unit> playerClass : players) {
+        for (Class<? extends Unit> playerClass : PLAYERS) {
             Unit player = Mockito.mock(playerClass);
-            for (Class<? extends Unit> ghostClass : ghosts) {
+            for (Class<? extends Unit> ghostClass : GHOSTS) {
                 Unit ghost = Mockito.mock(ghostClass);
 
                 playerCollisions.collide(player, ghost);
