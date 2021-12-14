@@ -192,7 +192,7 @@ public class MapParserTest {
         String mapNameForTest = GhostMapParser.getMapNameForTest();
         InputStream resourceAsStream = MapParserTest.class.getResourceAsStream(mapNameForTest);
         assert resourceAsStream != null;
-        BufferedReader reader = new BufferedReader(new InputStreamReader(resourceAsStream));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(resourceAsStream, StandardCharsets.UTF_8));
         List<String> expectedLines = reader.lines().collect(Collectors.toList());
         reader.close();
 
