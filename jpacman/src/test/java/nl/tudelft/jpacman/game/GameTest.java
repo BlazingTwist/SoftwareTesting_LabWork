@@ -35,10 +35,10 @@ public class GameTest {
      */
     @ParameterizedTest
     @CsvSource({
-        "true, false, false, 0",
-        "false, true, false, 0",
-        "false, false, true, 0",
-        "false, false, false, 1",
+        "true, false, false, 0", // Level should not be started again if a game is already in progress.
+        "false, true, false, 0", // Level should not be started when there are no players.
+        "false, false, true, 0", // Level should not be started when there are no pellets.
+        "false, false, false, 1", // Verify that start method actually starts the Level otherwise.
     })
     public void test_start_branchCoverage(boolean gameAlreadyInProgress, boolean noLivingPlayers, boolean noPellets,
                                           int expectedTimesLevelStarted) {
