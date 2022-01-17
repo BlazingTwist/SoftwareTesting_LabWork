@@ -145,6 +145,26 @@ When  the player hits the "Start" button;
 Then  the game is resumed.
 ```
 
+
+#### Story 5: Go to next level
+
+```
+As a player,
+ I want to be able to go to the next level;
+So  that I can play all three levels.
+
+Scenario S5.1: Load next level.
+Given the player won the current level;
+When  the player clicks the "Start next level" button;
+Then  the next level will be load and starts.
+
+Scenario S5.2: All three levels played.
+Given the player won the current level;
+When  the player clicks the "Exit" button;
+Then  the game close.
+```
+
+
 ## 3. User Interface
 
 The user interface for JPacman is relatively simple.  The game is
