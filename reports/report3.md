@@ -9,7 +9,13 @@
 
 ![](Exercise_33_assignment.png)
 
-TODO
+*see added test class `SuspensionTest`*  
+*or alternatively the relevant [Merge Request](https://github.com/BlazingTwist/SoftwareTesting_LabWork/pull/30)*
+
+Essentially, this test covers three cases:
+* Initial start allows movement of units
+* Suspension after initial start disallows movement of units
+* Restart after suspension allows movement of units
 
 <br/>
 
