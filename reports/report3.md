@@ -25,11 +25,13 @@ TODO
 
 ![](Exercise_35_assignment.png)
 
-Scenario 2.4 seems quite easy to test when using a custom map (like in exercise 34).  
-The Game-Over state gets immediately triggered, because Level::move(Unit, Direction) calls `updateObservers()`  
-The only concern that I have is that the Ghosts might move if the thread executing the test is too slow. This could result in flaky tests.
+Scenario 2.4 and 2.5 are mostly quite similar to Unit-Testing, since there are decently powerful interfaces to control the player. (In a way, it is also "easier" than Unit-Testing, since the System manages a large chunk of initialization for us)
 
-Scenario 2.5 does not suffer from the issue of moving ghosts, making it very easy to test.
+However, 2.4 and 2.5 have the added difficulty that we cannot directly observe whether Player::setAlive or Level::levelLost has been called.  
+What we have to do instead, is to observe the attributes of the Level to identify what happened (e.g. "no pellets left" -> won | or "all players dead" -> lost)  
+Alternatively we can register a LevelObserver to listen to levelWon and levelLost.
+
+2.4 provides additional difficulty, since the Ghosts might move if the thread executing the test is too slow. This could result in flaky tests.
 
 <br/>
 
