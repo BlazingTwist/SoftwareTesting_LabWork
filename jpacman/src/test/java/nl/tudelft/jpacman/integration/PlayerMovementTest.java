@@ -165,8 +165,8 @@ public class PlayerMovementTest {
         game.move(player, Direction.NORTH);
 
         assert game.getLevel().remainingPellets() > 0 : "No pellets remaining!";
-        assert !player.isAlive() : "Player was still alive!";
-        assert !game.isInProgress() : "Game was not over!";
+        assertFalse(player.isAlive(), "Player was still alive!");
+        assertFalse(game.isInProgress(), "Game was not over!");
     }
 
     /**
@@ -188,8 +188,8 @@ public class PlayerMovementTest {
         // When I press an arrow key towards that square
         game.move(player, Direction.EAST);
 
-        assert game.getLevel().remainingPellets() == 0 : "Did not collect all pellets!";
         assert player.isAlive() : "Player has died!";
-        assert !game.isInProgress() : "Game was not over!";
+        assertThat(game.getLevel().remainingPellets()).isEqualTo(0);
+        assertFalse(game.isInProgress(), "Game was not over!");
     }
 }
