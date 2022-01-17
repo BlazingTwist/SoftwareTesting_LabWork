@@ -42,7 +42,11 @@ TODO
 
 ![](Exercise_37_assignment.png)
 
-TODO
+Testing User Story 3 is a lot more complicated.  
+We cannot directly control the action of a ghost, but we can provide custom levels in such a way that the ghost chooses our desired action.  
+Additionally, we have to wait for the ghost to execute its action, fortunately we can register a LevelObserver that allows us to observe when a move is made.
+
+Overall, when performing System Tests, there are a lot more side-effects to consider than during Unit Testing.
 
 <br/>
 
