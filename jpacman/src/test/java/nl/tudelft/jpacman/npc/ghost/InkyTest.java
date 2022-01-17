@@ -12,6 +12,7 @@ import nl.tudelft.jpacman.sprite.PacManSprites;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utility.GhostMapParser;
 
 /**
  * Tests functionality of the {@link nl.tudelft.jpacman.npc.ghost.Inky} class.

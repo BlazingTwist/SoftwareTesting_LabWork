@@ -17,7 +17,8 @@ TODO
 
 ![](Exercise_34_assignment.png)
 
-TODO
+*see added test class `PlayerMovementTest`*  
+*or alternatively the relevant [Merge Request](https://github.com/BlazingTwist/SoftwareTesting_LabWork/pull/31)*
 
 <br/>
 
