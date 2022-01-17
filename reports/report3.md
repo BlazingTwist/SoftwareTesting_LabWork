@@ -50,7 +50,7 @@ TODO
 
 ![](Exercise_38_assignment.png)
 
-TODO
+![](Exercise_38.png)
 
 <br/>
 
