@@ -7,7 +7,7 @@ import nl.tudelft.jpacman.level.Player;
 import nl.tudelft.jpacman.level.PlayerFactory;
 import nl.tudelft.jpacman.npc.ghost.Clyde;
 import nl.tudelft.jpacman.npc.ghost.GhostFactory;
-import nl.tudelft.jpacman.npc.ghost.GhostMapParser;
+import utility.GhostMapParser;
 import nl.tudelft.jpacman.points.DefaultPointCalculator;
 import nl.tudelft.jpacman.sprite.PacManSprites;
 import static org.assertj.core.api.Assertions.assertThat;
