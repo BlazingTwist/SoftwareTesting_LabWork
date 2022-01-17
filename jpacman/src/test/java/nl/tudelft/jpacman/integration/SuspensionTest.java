@@ -34,9 +34,9 @@ import org.junit.jupiter.api.Test;
  * Then  the game is resumed.
  */
 public class SuspensionTest {
-    private final BiConsumer<Square, Square> movementRule_moveAllowed = (actualSquare, moveSquare)
+    private final BiConsumer<Square, Square> moveAllowed = (actualSquare, moveSquare)
         -> assertThat(actualSquare).isEqualTo(moveSquare);
-    private final BiConsumer<Square, Square> movementRule_moveBlocked = (actualSquare, moveSquare)
+    private final BiConsumer<Square, Square> moveBlocked = (actualSquare, moveSquare)
         -> assertThat(actualSquare).isNotEqualTo(moveSquare);
 
     private Launcher launcher;
@@ -54,7 +54,7 @@ public class SuspensionTest {
         game = launcher.getGame();
 
         // gather player
-        assert game.getPlayers() != null && game.getPlayers().size() > 0 : "unable to find player in game";
+        assert game.getPlayers() != null && !game.getPlayers().isEmpty() : "unable to find player in game";
         player = game.getPlayers().get(0);
 
         // gather nonPlayerUnits
@@ -65,13 +65,12 @@ public class SuspensionTest {
                 Square square = board.squareAt(x, y);
                 for (Unit occupant : square.getOccupants()) {
                     if (occupant instanceof Ghost) {
-                        ghosts.add((Ghost)occupant);
+                        ghosts.add((Ghost) occupant);
                     }
                 }
             }
         }
-        assert ghosts.size() > 0 : "did not find any ghosts on the board!";
-        System.out.println("breakpoint!");
+        assert !ghosts.isEmpty() : "did not find any ghosts on the board!";
     }
 
     /**
@@ -133,8 +132,8 @@ public class SuspensionTest {
     @Test
     public void test_whenGameStarted_thenUnitsMove() {
         game.start();
-        verifyPlayerMovement(movementRule_moveAllowed);
-        verifyGhostMovement(movementRule_moveAllowed);
+        verifyPlayerMovement(moveAllowed);
+        verifyGhostMovement(moveAllowed);
     }
 
     /**
@@ -146,8 +145,8 @@ public class SuspensionTest {
         //   but stringing my way through private fields strikes me as bad practice, so this will have to do
         game.start();
         game.stop();
-        verifyPlayerMovement(movementRule_moveBlocked);
-        verifyGhostMovement(movementRule_moveBlocked);
+        verifyPlayerMovement(moveBlocked);
+        verifyGhostMovement(moveBlocked);
     }
 
     /**
@@ -157,6 +156,8 @@ public class SuspensionTest {
     public void test_whenGameResumed_thenUnitsMove() {
         game.start();
         game.stop();
-        test_whenGameStarted_thenUnitsMove();
+        game.start();
+        verifyPlayerMovement(moveAllowed);
+        verifyGhostMovement(moveAllowed);
     }
 }
