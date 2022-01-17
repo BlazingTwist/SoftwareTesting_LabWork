@@ -25,7 +25,11 @@ TODO
 
 ![](Exercise_35_assignment.png)
 
-TODO
+Scenario 2.4 seems quite easy to test when using a custom map (like in exercise 34).  
+The Game-Over state gets immediately triggered, because Level::move(Unit, Direction) calls `updateObservers()`  
+The only concern that I have is that the Ghosts might move if the thread executing the test is too slow. This could result in flaky tests.
+
+Scenario 2.5 does not suffer from the issue of moving ghosts, making it very easy to test.
 
 <br/>
 
