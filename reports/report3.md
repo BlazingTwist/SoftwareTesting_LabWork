@@ -46,7 +46,8 @@ Alternatively we can register a LevelObserver to listen to levelWon and levelLos
 
 ![](Exercise_36_assignment.png)
 
-TODO
+*see modified test class `PlayerMovementTest`*  
+*or alternatively the relevant [Merge Request](https://github.com/BlazingTwist/SoftwareTesting_LabWork/pull/35)*
 
 <br/>
 

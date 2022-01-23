@@ -144,4 +144,52 @@ public class PlayerMovementTest {
             assertThat(player.getSquare()).isEqualTo(previousSquare); // then the move is not conducted.
         }
     }
+
+    /**
+     * Verify that Scenario S2.4 holds true.
+     *
+     * @throws ClassNotFoundException should not be thrown.
+     */
+    @Test
+    public void test_playerMoveCausesDeath() throws ClassNotFoundException {
+        // given game has started
+        //  and pacman is next to a cell containing a ghost
+        Game game = startGameWithMap(GhostMapParser.getMapNameForTest());
+        Player player = getPlayer(game);
+
+        assert game.isInProgress() : "Game was not in progress!";
+        assert game.getLevel().remainingPellets() > 0 : "No pellets remaining!";
+        assert player.isAlive() : "Player was not alive!";
+
+        // When I press an arrow key towards that square
+        game.move(player, Direction.NORTH);
+
+        assert game.getLevel().remainingPellets() > 0 : "No pellets remaining!";
+        assertFalse(player.isAlive(), "Player was still alive!");
+        assertFalse(game.isInProgress(), "Game was not over!");
+    }
+
+    /**
+     * Verify that Scenario S2.5 holds true.
+     *
+     * @throws ClassNotFoundException should not be thrown.
+     */
+    @Test
+    public void test_playerMoveCausesWin() throws ClassNotFoundException {
+        // given game has started
+        //  and pacman is next to a cell containing a pellet
+        Game game = startGameWithMap(GhostMapParser.getMapNameForTest());
+        Player player = getPlayer(game);
+
+        assert game.isInProgress() : "Game was not in progress!";
+        assert game.getLevel().remainingPellets() > 0 : "No pellets remaining!";
+        assert player.isAlive() : "Player was not alive!";
+
+        // When I press an arrow key towards that square
+        game.move(player, Direction.EAST);
+
+        assert player.isAlive() : "Player has died!";
+        assertThat(game.getLevel().remainingPellets()).isEqualTo(0);
+        assertFalse(game.isInProgress(), "Game was not over!");
+    }
 }
