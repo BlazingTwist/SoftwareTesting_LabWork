@@ -26,7 +26,7 @@ Essentially, this test covers three cases:
 *see added test class `PlayerMovementTest`*  
 *or alternatively the relevant [Merge Request](https://github.com/BlazingTwist/SoftwareTesting_LabWork/pull/31)*
 
-<br/>
+<div class="page"/>
 
 # Exercise 35
 
@@ -67,7 +67,7 @@ Overall, when performing System Tests, there are a lot more side-effects to cons
 
 ![](Exercise_38_assignment.png)
 
-![](Exercise_38.png)
+<img src="Exercise_38.png" style="width: 500px"/>
 
 <br/>
 
@@ -75,9 +75,9 @@ Overall, when performing System Tests, there are a lot more side-effects to cons
 
 ![](Exercise_39_assignment.png)
 
-![](Exercise_39_img.png)
+<img src="Exercise_39_img.png" style="width: 500px"/>
 
-<br/>
+<div class="page"/>
 
 # Exercise 40
 
@@ -93,17 +93,17 @@ Overall, when performing System Tests, there are a lot more side-effects to cons
 
 *see modified document `scenarios.md`*
 
-<br/>
+<div class="page"/>
 
 # Exercise 43
 
 ![](Exercise_43_assignment.png)
 
-![](Exercise_43_img1.png)
+<img src="Exercise_43_img1.png" style="width: 500px"/>
 
-![](Exercise_43_img2.png)
+<img src="Exercise_43_img2.png" style="width: 500px"/>
 
-<br/>
+<div class="page"/>
 
 # Exercise 45
 
