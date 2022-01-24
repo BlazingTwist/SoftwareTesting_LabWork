@@ -37,6 +37,13 @@ public class Launcher {
     private Game game;
 
     /**
+     * @param game Sets the current game.
+     */
+    protected void setGame(Game game) {
+        this.game = game;
+    }
+
+    /**
      * @return The game object this launcher will start when {@link #launch()}
      * is called.
      */
@@ -76,7 +83,10 @@ public class Launcher {
         return game;
     }
 
-    private PointCalculator loadPointCalculator() {
+    /**
+     * @return the created and loaded PointCalculator
+     */
+    protected PointCalculator loadPointCalculator() {
         return new PointCalculatorLoader().load();
     }
 
