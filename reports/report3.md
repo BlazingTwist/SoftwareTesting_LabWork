@@ -107,7 +107,9 @@ TODO
 
 ![](Exercise_43_assignment.png)
 
-TODO
+![](Exercise_43_img1.png)
+
+![](Exercise_43_img2.png)
 
 <br/>
 
