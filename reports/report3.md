@@ -99,7 +99,7 @@ TODO
 
 ![](Exercise_42_assignment.png)
 
-TODO
+*see modified document `scenarios.md`*
 
 <br/>
 
