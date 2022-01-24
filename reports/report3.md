@@ -67,7 +67,7 @@ Overall, when performing System Tests, there are a lot more side-effects to cons
 
 ![](Exercise_38_assignment.png)
 
-TODO
+![](Exercise_38.png)
 
 <br/>
 
