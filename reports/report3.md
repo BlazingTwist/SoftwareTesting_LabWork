@@ -87,14 +87,6 @@ Overall, when performing System Tests, there are a lot more side-effects to cons
 
 <br/>
 
-# Exercise 41
-
-![](Exercise_41_assignment.png)
-
-TODO
-
-<br/>
-
 # Exercise 42
 
 ![](Exercise_42_assignment.png)
@@ -110,14 +102,6 @@ TODO
 ![](Exercise_43_img1.png)
 
 ![](Exercise_43_img2.png)
-
-<br/>
-
-# Exercise 44
-
-![](Exercise_44_assignment.png)
-
-TODO
 
 <br/>
 
@@ -139,40 +123,16 @@ TODO
 
 <br/>
 
-# Exercise 47
+# Submission
 
-![](Exercise_47_assignment.png)
+### *"List three things you consider good (either in your solution or in the framework),..."*
 
-TODO
-
-<br/>
-
-# Exercise 48
-
-![](Exercise_48_assignment.png)
-
-TODO
+Working with the labworks was very helpful in gaining practical experience. Especially working with mocks brought me a lot. 
 
 <br/>
 
-# Exercise 49
+### *"...and list three things you consider annoying or bad, and propose an alternative for them."*
 
-![](Exercise_49_assignment.png)
-
-TODO
+Nothing to say.
 
 <br/>
-
-# Exercise 50
-
-![](Exercise_50_assignment.png)
-
-TODO
-
-<br/>
-
-# Exercise 51
-
-![](Exercise_51_assignment.png)
-
-TODO
