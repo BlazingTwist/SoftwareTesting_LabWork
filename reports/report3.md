@@ -83,7 +83,7 @@ TODO
 
 ![](Exercise_40_assignment.png)
 
-TODO
+![](Exercise_40_img.png)
 
 <br/>
 
