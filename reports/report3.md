@@ -125,7 +125,8 @@ TODO
 
 ![](Exercise_45_assignment.png)
 
-TODO
+*see added source class `MultiLevelLauncher`*  
+*or alternatively the relevant [Merge Request](https://github.com/BlazingTwist/SoftwareTesting_LabWork/pull/42)*
 
 <br/>
 
@@ -133,7 +134,8 @@ TODO
 
 ![](Exercise_46_assignment.png)
 
-TODO
+*see added source class `MultiLevelGame`*  
+*or alternatively the relevant [Merge Request](https://github.com/BlazingTwist/SoftwareTesting_LabWork/pull/42)*
 
 <br/>
 
