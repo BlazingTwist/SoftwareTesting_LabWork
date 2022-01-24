@@ -37,6 +37,17 @@ public class GameFactory {
     }
 
     /**
+     * Creates a game for multiple levels with one player.
+     *
+     * @param levels          The levels to create a game for.
+     * @param pointCalculator The way to calculate points upon collisions.
+     * @return A new single player game.
+     */
+    public Game createMultiLevelGame(Level[] levels, PointCalculator pointCalculator) {
+        return new MultiLevelGame(playerFactory.createPacMan(), levels, pointCalculator);
+    }
+
+    /**
      * Returns the player factory associated with this game factory.
      *
      * @return The player factory associated with this game factory.

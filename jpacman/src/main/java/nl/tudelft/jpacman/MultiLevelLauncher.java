@@ -1,5 +1,9 @@
 package nl.tudelft.jpacman;
 
+import nl.tudelft.jpacman.game.Game;
+import nl.tudelft.jpacman.game.GameFactory;
+import nl.tudelft.jpacman.level.Level;
+
 /**
  * Creates and launches the JPacMan UI.
  */
@@ -12,5 +16,18 @@ public class MultiLevelLauncher extends Launcher {
      */
     public static void main(String[] args) {
         new MultiLevelLauncher().launch();
+    }
+
+    /**
+     * Creates a new game using the level from {@link #makeLevel()}.
+     *
+     * @return a new Game.
+     */
+    @Override
+    public Game makeGame() {
+        GameFactory gf = getGameFactory();
+        Level[] levels = new Level[]{makeLevel()};
+        game = gf.createMultiLevelGame(levels, loadPointCalculator());
+        return game;
     }
 }
