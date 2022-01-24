@@ -10,15 +10,6 @@ import nl.tudelft.jpacman.level.Level;
 public class MultiLevelLauncher extends Launcher {
 
     /**
-     * Main execution method for the Launcher.
-     *
-     * @param args The command line arguments - which are ignored.
-     */
-    public static void main(String[] args) {
-        new MultiLevelLauncher().launch();
-    }
-
-    /**
      * Creates a new game using the level from {@link #makeLevel()}.
      *
      * @return a new Game.
@@ -27,7 +18,16 @@ public class MultiLevelLauncher extends Launcher {
     public Game makeGame() {
         GameFactory gf = getGameFactory();
         Level[] levels = new Level[]{makeLevel()};
-        game = gf.createMultiLevelGame(levels, loadPointCalculator());
-        return game;
+        setGame(gf.createMultiLevelGame(levels, loadPointCalculator()));
+        return getGame();
+    }
+
+    /**
+     * Main execution method for the Launcher.
+     *
+     * @param args The command line arguments - which are ignored.
+     */
+    public static void main(String[] args) {
+        new MultiLevelLauncher().launch();
     }
 }

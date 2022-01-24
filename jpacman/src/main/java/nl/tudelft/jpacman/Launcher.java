@@ -34,7 +34,14 @@ public class Launcher {
     private String levelMap = DEFAULT_MAP;
 
     private PacManUI pacManUI;
-    protected Game game;
+    private Game game;
+
+    /**
+     * @param game Sets the current game.
+     */
+    protected void setGame(Game game) {
+        this.game = game;
+    }
 
     /**
      * @return The game object this launcher will start when {@link #launch()}
@@ -76,6 +83,9 @@ public class Launcher {
         return game;
     }
 
+    /**
+     * @return the created and loaded PointCalculator
+     */
     protected PointCalculator loadPointCalculator() {
         return new PointCalculatorLoader().load();
     }

@@ -40,8 +40,8 @@ public class MultiLevelGame extends Game {
         assert levels != null && levels.length > 0;
 
         this.player = player;
-        this.levels = levels;
-        levels[currentLevelIndex].registerPlayer(player);
+        this.levels = levels.clone();
+        this.levels[currentLevelIndex].registerPlayer(player);
     }
 
     /**
@@ -64,7 +64,7 @@ public class MultiLevelGame extends Game {
     }
 
     /**
-     * Changes to the next level
+     * Changes to the next level.
      *
      * @return true if a next level was found
      */
